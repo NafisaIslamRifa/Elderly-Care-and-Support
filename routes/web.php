@@ -14,6 +14,16 @@ use Illuminate\Foundation\Exceptions\Handler;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
+
+use App\Http\Controllers\Frontend\HomeController;
+ use App\Http\Controllers\Frontend\AboutController;
+ use App\Http\Controllers\Frontend\CareController;
+ use App\Http\Controllers\Frontend\ContactController;
+ use App\Http\Controllers\Frontend\DonationController;
+ use App\Http\Controllers\Frontend\UserEventController;
+ use App\Http\Controllers\Frontend\FoodController;
+ use App\Http\Controllers\Frontend\ShelterController;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -54,7 +64,14 @@ Route::group(['middleware'=>'auth'],function(){
 
 
 
-
+Route::get("/",[HomeController::class,"index"]);
+Route::get("/about",[AboutController::class,"index"]);
+Route::get("/contact",[ContactController::class,"index"]);
+Route::get("/shelter",[ShelterController::class,"index"]);
+Route::get("/event",[UserEventController::class,"index"]);
+Route::get("/care",[CareController::class,"index"]);
+Route::get("/food",[FoodController::class,"index"]);
+Route::get("/donation",[DonationController::class,"index"]);
 
 
 
