@@ -48,28 +48,28 @@
 
         <nav id="navmenu" class="navmenu">
           <ul>
-            <li><a href="{{url("/")}}" class="active">Home<br></a></li>
-            <li><a href="{{url("/about")}}">About</a></li>
+            <li><a href="{{ route('account.dashboard') }}" class="active">Home<br></a></li>
+            <li><a href="{{ route('account.about') }}">About</a></li>
             
-            <li><a href="{{url("/event")}}">Events</a></li>
+            <li><a href="{{ route('account.event') }}">Events</a></li>
             
             <li class="dropdown"><a href="#services"><span>Services</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
               <ul>
                 <!-- <li><a href="#">Medical Treatment</a></li> -->
                
                 </li>
-                <li><a href="{{url("/food")}}">Food & Nutrition</a></li>
-                <li><a href="{{url("/care")}}">Daily Care</a></li>
-                <li><a href="{{url("/shelter")}}">Accommodation</a></li>
+                <li><a href="{{ route('account.food') }}">Food & Nutrition</a></li>
+                <li><a href="{{ route('account.care') }}">Daily Care</a></li>
+                <li><a href="{{ route('account.shelter') }}">Accommodation</a></li>
               </ul>
             </li>
-            <li><a href="{{url("/contact")}}">Contact</a></li>
-            <li><a href="{{url("/donation")}}">Donate</a></li>
+            <li><a href="{{ route('account.contact') }}">Contact</a></li>
+            <li><a href="{{ route('account.donation') }}">Donate</a></li>
           </ul>
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
        
-        <a class="cta-btn d-none d-sm-block" href="#signup">Sign Up</a>
+        <a class="cta-btn d-none d-sm-block" href="{{ route('account.logout') }}">Log out</a>
 
       </div>
 

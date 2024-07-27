@@ -58,20 +58,22 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('/admin/AddStaff', [StaffController::class, 'index'])->name('admin.Staff');
     Route::POST('/admin/AddStaff', [StaffController::class, 'Addstaff'])->name('admin.AddStaff');
 
+   
+Route::get("/account/about",[AboutController::class,"index"])->name('account.about');
+Route::get("/account/contact",[ContactController::class,"index"])->name('account.contact');
+Route::get("/account/shelter",[ShelterController::class,"index"])->name('account.shelter');
+Route::get("/account/event",[EventController::class,"index"])->name('account.event');
+Route::get("/account/care",[CareController::class,"index"])->name('account.care');
+Route::get("/account/food",[FoodController::class,"index"])->name('account.food');
+Route::get("/account/donation",[DonationController::class,"index"])->name('account.donation');
+
 
 });
 
 
 
 
-Route::get("/",[HomeController::class,"index"]);
-Route::get("/about",[AboutController::class,"index"]);
-Route::get("/contact",[ContactController::class,"index"]);
-Route::get("/shelter",[ShelterController::class,"index"]);
-Route::get("/event",[UserEventController::class,"index"]);
-Route::get("/care",[CareController::class,"index"]);
-Route::get("/food",[FoodController::class,"index"]);
-Route::get("/donation",[DonationController::class,"index"]);
+
 
 
 
