@@ -50,13 +50,26 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('/admin/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
     Route::get('/admin/Budget', [BudgetController::class, 'index'])->name('admin.budget');
     Route::get('/admin/Event', [EventController::class, 'index'])->name('admin.event');
+
+
     Route::get('/admin/AddMembers', [MembersController::class, 'index'])->name('admin.members');
-    Route::POST('/admin/AddMembers', [MembersController::class, 'AddMember'])->name('admin.Addmembers');
-    
+    Route::post('/admin/AddMembers', [MembersController::class, 'AddMember'])->name('admin.Addmembers');
+    Route::get('/admin/Addmembers/{id}/edit', [MembersController::class, 'editMember'])->name('admin.editMember');
+    Route::post('/admin/Addmembers/{id}', [MembersController::class, 'updateMember'])->name('admin.updateMember');
+    Route::delete('/admin/Addmembers/{id}', [MembersController::class, 'deleteMember'])->name('admin.deleteMember');
+
 
     Route::get('/admin/Messages', [MessagesController::class, 'index'])->name('admin.message');
+
+
+
+
+
     Route::get('/admin/AddStaff', [StaffController::class, 'index'])->name('admin.Staff');
     Route::POST('/admin/AddStaff', [StaffController::class, 'Addstaff'])->name('admin.AddStaff');
+    Route::get('/admin/AddStaff/{id}/edit', [StaffController::class, 'editStaff'])->name('admin.editStaff');
+    Route::post('/admin/AddStaff/{id}', [StaffController::class, 'updateStaff'])->name('admin.updateStaff');
+    Route::delete('/admin/AddStaff/{id}', [StaffController::class, 'deleteStaff'])->name('admin.deleteStaff');
 
    
 Route::get("/account/about",[AboutController::class,"index"])->name('account.about');

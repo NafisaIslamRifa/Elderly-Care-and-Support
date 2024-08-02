@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id(); // Auto-incrementing primary key
             $table->string('name'); // Member's name
             $table->integer('age'); // Member's age
-            $table->enum('gender', ['Male', 'Female', 'Other']); // Member's gender
+            $table->enum('gender', ['Male', 'Female']); // Member's gender
             $table->string('contact_number'); // Member's contact number
             $table->string('room_number'); // Member's room number
             $table->string('room_status')->default('booked'); // Room status with default value 'booked'

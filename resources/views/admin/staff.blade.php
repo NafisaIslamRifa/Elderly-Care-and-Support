@@ -80,8 +80,9 @@
       <main id="content">
 
         @if (session('success'))
-        <div class="alert alert-success" role="alert">
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
             {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endif
 
@@ -135,47 +136,25 @@
    <h1 style="margin:0 0 4rem 35rem; ">Staff Section</h1>
 
    <div class="box-container">
+    @foreach ($staffs as $staff)
+   
       <div class="box">
-         <p> Staff id : <span>1</span> </p>
-         <p> Position : <span>Doctor</span> </p>
-         <p> Salary : <span>15000</span> </p>
+         <p> Staff id : <span>{{ $staff->id}}</span> </p>
+         <p>Username: <span>{{ $staff->name}}</span></p>
+         <p> Salary : <span>{{ $staff->salary}}</span> </p>
         
-         <a href="#" onclick="return confirm('update this user?');" class="option-btn">Update</a>
+         <a href="{{ route('admin.editStaff',$staff->id) }}"  class="option-btn">Update</a>
 
         
-         <a href="#" onclick="return confirm('Delete this user?');" class="delete-btn">Delete</a>
+         <form action="{{ route('admin.deleteStaff',$staff->id) }}" method="POST" onsubmit="return confirm('Delete this user?');" style="display:inline-block;">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="delete-btn">Delete</button>
+        </form>
       </div>
-      <div class="box">
-         <p> Staff id : <span>1</span> </p>
-         <p> Position : <span>Doctor</span> </p>
-         <p> Salary : <span>15000</span> </p>
-        
-         <a href="#" onclick="return confirm('update this user?');" class="option-btn">Update</a>
-
-        
-         <a href="#" onclick="return confirm('Delete this user?');" class="delete-btn">Delete</a>
+      @endforeach
       </div>
-      <div class="box">
-         <p> Staff id : <span>1</span> </p>
-         <p> Position : <span>Doctor</span> </p>
-         <p> Salary : <span>15000</span> </p>
-        
-         <a href="#" onclick="return confirm('update this user?');" class="option-btn">Update</a>
-
-        
-         <a href="#" onclick="return confirm('Delete this user?');" class="delete-btn">Delete</a>
-      </div>
-      <div class="box">
-         <p> Staff id : <span>1</span> </p>
-         <p> Position : <span>Doctor</span> </p>
-         <p> Salary : <span>15000</span> </p>
-        
-         <a href="#" onclick="return confirm('update this user?');" class="option-btn">Update</a>
-
-        
-         <a href="#" onclick="return confirm('Delete this user?');" class="delete-btn">Delete</a>
-      </div>
-
+     
 </section>
 
 
