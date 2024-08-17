@@ -17,8 +17,8 @@ class AdminDashboardController extends Controller
         $eventsCount = DB::table('events')->count();
         $membersCount = DB::table('members')->count();
         $staffsCount = DB::table('staffs')->count();
-        
+        $donationsCount = DB::table('donations')->count();
     
-        return view('admin.admin-dashboard', compact('messagesCount', 'eventsCount','membersCount','staffsCount'));
+        return view('admin.admin-dashboard', compact('messagesCount', 'eventsCount','membersCount','staffsCount','donationsCount'));
     }
 }

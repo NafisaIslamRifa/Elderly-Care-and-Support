@@ -137,7 +137,8 @@
 
 
 					<span class="text">
-						<h3>1020</h3>
+						<!-- <h3>1020</h3> -->
+						<h3>{{ $donationsCount }}</h3>
 						<p>Donation</p>
 					</span>
 				</li>
