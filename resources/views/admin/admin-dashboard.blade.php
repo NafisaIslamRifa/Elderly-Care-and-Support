@@ -274,9 +274,8 @@ tbody .status.process {
 			<div class="table-data">
     <div class="order">
         <div class="head">
-            <h3>Top Donors</h3>
-            <i class='bx bx-search'></i>
-            <i class='bx bx-filter'></i>
+            <h3>All Donors</h3>
+           
         </div>
         <table>
             <thead>

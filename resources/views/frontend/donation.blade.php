@@ -207,6 +207,10 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <input type="submit" value="MAKE A DONATION &nbsp; " class="btn btn-warning placeicon purple-button">
+                               
+                                <!-- <input type="submit" value="MAKE A DONATION &nbsp; " class="btn placeicon primary-button" style="background-color: #1977cc; border-color: blue; color: white;">
+ -->
+
                             </div>
                         </div>
                     </form>

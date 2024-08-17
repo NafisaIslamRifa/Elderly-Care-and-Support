@@ -23,7 +23,7 @@ class AdminDashboardController extends Controller
         // Fetch the top 5 donations ordered by amount
    
     $topDonations = Donation::orderBy('amount', 'desc')
-    ->take(5)
+    
     ->get(['name',  'amount', 'status']); 
         return view('admin.admin-dashboard', compact('messagesCount', 'eventsCount','membersCount','staffsCount','donationsCount','topDonations'));
     }
