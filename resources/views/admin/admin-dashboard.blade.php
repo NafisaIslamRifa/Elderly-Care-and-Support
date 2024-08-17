@@ -26,6 +26,87 @@
 	<link rel="stylesheet" href="main.css">
 
 	<title>AdminHub</title>
+	<style>
+		.table-data {
+    padding: 20px;
+    background-color: #f9f9f9; 
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+}
+
+.order {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.head h3 {
+    font-size: 24px;
+    color: #333;
+    font-weight: bold;
+}
+
+.head i {
+    font-size: 20px;
+    color: #1977cc;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead th {
+    background-color: #1977cc; 
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px;
+    text-align: left;
+}
+
+tbody td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd; 
+}
+
+tbody tr:hover {
+    background-color: #f1f1f1; 
+}
+
+tbody p {
+    color: #1977cc;
+    font-weight: bold;
+}
+
+tbody .status {
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: black; 
+    font-weight: bold;
+}
+
+tbody .status.completed {
+    background-color: #4CAF50; 
+}
+
+tbody .status.pending {
+    background-color: #FFC107; 
+}
+
+tbody .status.process {
+    background-color: #2196F3; 
+}
+
+		</style>
 </head>
 <body>
 
@@ -191,65 +272,35 @@
 
 
 			<div class="table-data">
-				<div class="order">
-					<div class="head">
-						<h3>Top Donors</h3>
-						<i class='bx bx-search' ></i>
-						<i class='bx bx-filter' ></i>
-					</div>
-					<table>
-						<thead>
-							<tr>
-								<th>User</th>
-								<th>Donate Date</th>
-								<th>Status</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>
-									<img src="img/people.png">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status completed">Completed</span></td>
-							</tr>
-							<tr>
-								<td>
-									<img src="img/people.png">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status pending">Pending</span></td>
-							</tr>
-							<tr>
-								<td>
-									<img src="img/people.png">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status process">Process</span></td>
-							</tr>
-							<tr>
-								<td>
-									<img src="img/people.png">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status pending">Pending</span></td>
-							</tr>
-							<tr>
-								<td>
-									<img src="img/people.png">
-									<p>John Doe</p>
-								</td>
-								<td>01-10-2021</td>
-								<td><span class="status completed">Completed</span></td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-				
+    <div class="order">
+        <div class="head">
+            <h3>Top Donors</h3>
+            <i class='bx bx-search'></i>
+            <i class='bx bx-filter'></i>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>User</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($topDonations as $donation)
+                <tr>
+                    <td>
+                        <p>{{ $donation->name }}</p>
+                    </td>
+                    <td>${{ number_format($donation->amount, 2) }}</td>
+                    <td><span style="color: #008000;  font-size: 12px; " class="status {{ strtolower($donation->status) }}">{{ ucfirst($donation->status) }}
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+</div>
+
 				
 		</main>
 		<!-- MAIN -->
