@@ -6,7 +6,7 @@ use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 
 
-// app/Http/Kernel.php
+
 
 
 
@@ -17,9 +17,15 @@ return Application::configure(basePath: dirname(__DIR__))
         commands: __DIR__.'/../routes/console.php',
         health: '/up',
     )
+    ->withMiddleware(function (Middleware $middleware) {
+        $middleware->validateCsrfTokens(except: [
+            '/success','/fail','/cancel',
+        ]);
+    })
 
     
     ->withMiddleware(function (Middleware $middleware) {
+        
        
  
    $middleware->redirectTo(

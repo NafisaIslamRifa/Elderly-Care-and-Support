@@ -9,9 +9,9 @@ use App\Http\Controllers\admin\MessagesController;
 use App\Http\Controllers\admin\StaffController;
 use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\LoginController;
-use App\Http\Middleware\AuthMiddleware;
-use Illuminate\Foundation\Exceptions\Handler;
-use Illuminate\Support\Facades\Auth;
+
+
+
 use Illuminate\Support\Facades\Route;
 
 
@@ -23,6 +23,9 @@ use App\Http\Controllers\Frontend\HomeController;
  use App\Http\Controllers\Frontend\UserEventController;
  use App\Http\Controllers\Frontend\FoodController;
  use App\Http\Controllers\Frontend\ShelterController;
+use App\Http\Controllers\SslCommerzPaymentController;
+
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -49,8 +52,7 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('/admin/logout', [AdminLoginController::class, 'logout'])->name('admin.logout');
     Route::get('/admin/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
     Route::get('/admin/Budget', [BudgetController::class, 'index'])->name('admin.budget');
-    Route::get('/admin/Event', [EventController::class, 'index'])->name('admin.event');
-
+    
 
     Route::get('/admin/AddMembers', [MembersController::class, 'index'])->name('admin.members');
     Route::post('/admin/AddMembers', [MembersController::class, 'AddMember'])->name('admin.Addmembers');
@@ -73,17 +75,64 @@ Route::group(['middleware'=>'auth'],function(){
 
    
 Route::get("/account/about",[AboutController::class,"index"])->name('account.about');
-Route::get("/account/contact",[ContactController::class,"index"])->name('account.contact');
+
 Route::get("/account/shelter",[ShelterController::class,"index"])->name('account.shelter');
-Route::get("/account/event",[EventController::class,"index"])->name('account.event');
+
 Route::get("/account/care",[CareController::class,"index"])->name('account.care');
 Route::get("/account/food",[FoodController::class,"index"])->name('account.food');
-Route::get("/account/donation",[DonationController::class,"index"])->name('account.donation');
+
+
+
+
+Route::get("/account/contact",[ContactController::class,"index"])->name('account.contact');
+Route::POST("/account/contact",[ContactController::class,"AddContact"])->name('account.Addcontact');
+
+Route::get('/admin/Messages', [MessagesController::class, 'index'])->name('admin.message');
+Route::get('/admin/Messages', [MessagesController::class, 'get'])->name('admin.message');
+Route::get('admin/delete/{contact_id}', [MessagesController::class, 'delete'])->name('admin.messageDelete');
+Route::get('admin/messages/{contact_id}/edit', [MessagesController::class, 'edit'])->name('admin.messageEdit');
+Route::put('admin/messages/{contact_id}', [MessagesController::class, 'update'])->name('admin.messageUpdate');
+
+
+Route::get('/admin/Event', [EventController::class, 'index'])->name('admin.event');
+Route::post('/admin/Event', [EventController::class, 'addEvent'])->name('admin.events');
+Route::get('admin/Event', [EventController::class, 'get'])->name('admin.event');
+Route::delete('/admin/events/{event_id}', [EventController::class, 'delete'])->name('admin.deleteEvent');
+Route::get('/admin/events/{event_id}/edit', [EventController::class, 'edit'])->name('admin.editEvent');
+Route::put('/admin/events/{event_id}', [EventController::class, 'update'])->name('admin.updateEvent');
+
+
+
+
+
+Route::get("/account/event",[UserEventController::class,"index"])->name('account.event');
+Route::get("/account/event",[UserEventController::class,"get"])->name('account.event');
+//Route::get("/account/donation",[DonationController::class,"index"])->name('account.donation');
+
+// SSLCOMMERZ Start
+Route::get('/account/donation', [SslCommerzPaymentController::class, 'exampleEasyCheckout'])->name('account.donation');
+
+
+
+
+
+
+//SSLCOMMERZ END
 
 
 });
 
 
+Route::post('/pay', [SslCommerzPaymentController::class, 'index'])->name('account.pay');
+Route::post('/pay-via-ajax', [SslCommerzPaymentController::class, 'payViaAjax']);
+
+Route::post('/success', [SslCommerzPaymentController::class, 'success']);
+
+
+Route::post('/fail', [SslCommerzPaymentController::class, 'fail']);
+Route::post('/cancel', [SslCommerzPaymentController::class, 'cancel']);
+
+Route::post('/ipn', [SslCommerzPaymentController::class, 'ipn']);
 
 
 

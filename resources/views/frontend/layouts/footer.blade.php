@@ -2,15 +2,15 @@
 
 <div class="container footer-top">
   <div class="row gy-4">
-    <div class="col-lg-4 col-md-6 footer-about">
-      <a href="index.html" class="logo d-flex align-items-center">
+    <div class="col-lg-4 col-md-6  footer-about">
+      <a href="{{ route('account.dashboard') }}" class="logo d-flex align-items-center">
         <span class="sitename">Care Home</span>
       </a>
       <div class="footer-contact pt-3">
         <p>United International University</p>
         <p>Madani Avenue,Dhaka-1212</p>
         <p class="mt-3"><strong>Phone:</strong> <span>+01789234569</span></p>
-        <p><strong>Email:</strong> <span>info@google.com</span></p>
+        <p><strong>Email:</strong> <span>nafisaislamrifa@gmail.com</span></p>
       </div>
       <div class="social-links d-flex mt-4">
         <a href=""><i class="bi bi-twitter-x"></i></a>
@@ -20,18 +20,18 @@
       </div>
     </div>
 
-    <div class="col-lg-2 col-md-3 footer-links">
+    <div class="col-lg-4 col-md-3 footer-links">
       <h4>Useful Links</h4>
       <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About us</a></li>
-        <li><a href="#">Services</a></li>
+        <li><a href="{{ route('account.dashboard') }}">Home</a></li>
+        <li><a href="{{ route('account.about') }}">About us</a></li>
+        <li><a href="">Services</a></li>
         <li><a href="#">Terms of service</a></li>
         <li><a href="#">Privacy policy</a></li>
       </ul>
     </div>
 
-    <div class="col-lg-2 col-md-3 footer-links">
+    <div class="col-lg-4 col-md-3 footer-links">
       <h4>Our Mission</h4>
       <ul>
         <li><a href="#">Newsletter</a></li>
@@ -48,7 +48,7 @@
 </div>
 
 <div class="container copyright text-center mt-4">
-  <p>© <span>Copyright</span> <strong class="px-1 sitename">Care Home</strong> <span>All Rights Reserved</span></p>
+  
   <div class="credits">
    
    

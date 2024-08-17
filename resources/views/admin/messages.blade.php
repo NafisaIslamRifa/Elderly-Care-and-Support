@@ -78,6 +78,12 @@
 	
 	
       <main id="content">
+        @if (session('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
 
 	<!-- CONTENT -->
 	<section >
@@ -97,54 +103,24 @@
 
 
 
-<section class="users">
+         <section class="users">
+                <div class="box-container">
+                    @foreach($contacts as $contact)
+                    <div class="box">
+                        <p> User ID: <span>{{ $contact->user_id }}</span> </p>
+                        <p> User Name: <span>{{ $contact->name }}</span> </p>
+                        <p> Message: <span>{{ $contact->message }}</span> </p>
+                        <!-- <a href="#" onclick="return confirm('Update this message?');" class="option-btn">Update</a> -->
+                        <a href="{{ route('admin.messageEdit', $contact->contact_id) }}" class="option-btn">Update</a>
 
+                       
+                        <a href="{{ route('admin.messageDelete', $contact->contact_id) }}" onclick="return confirm('Delete this message?');" class="delete-btn">Delete</a>
+                    </div>
+                    @endforeach
+                </div>
+            </section>
+        </section>
    
-
-   <div class="box-container">
-      <div class="box">
-         <p> user id : <span>1</span> </p>
-         <p> user name : <span>kalam</span> </p>
-         <p> Message : <span>payment problem</span> </p>
-        
-         <a href="#" onclick="return confirm('update this user?');" class="option-btn">Update</a>
-
-        
-         <a href="#" onclick="return confirm('Delete this user?');" class="delete-btn">Delete</a>
-      </div>
-      <div class="box">
-         <p> user id : <span>1</span> </p>
-         <p> user name : <span>kalam</span> </p>
-         <p> Message : <span>payment problem</span> </p>
-        
-         <a href="#" onclick="return confirm('update this user?');" class="option-btn">Update</a>
-
-        
-         <a href="#" onclick="return confirm('Delete this user?');" class="delete-btn">Delete</a>
-      </div>
-      <div class="box">
-         <p> user id : <span>1</span> </p>
-         <p> user name : <span>kalam</span> </p>
-         <p> Message : <span>payment problem</span> </p>
-        
-         <a href="#" onclick="return confirm('update this user?');" class="option-btn">Update</a>
-
-        
-         <a href="#" onclick="return confirm('Delete this user?');" class="delete-btn">Delete</a>
-      </div>
-      <div class="box">
-         <p> user id : <span>1</span> </p>
-         <p> user name : <span>kalam</span> </p>
-         <p> Message : <span>payment problem</span> </p>
-        
-         <a href="#" onclick="return confirm('update this user?');" class="option-btn">Update</a>
-
-        
-         <a href="#" onclick="return confirm('Delete this user?');" class="delete-btn">Delete</a>
-      </div>
-
-</section>
-
 
  
    

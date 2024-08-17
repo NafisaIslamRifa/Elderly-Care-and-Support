@@ -78,6 +78,12 @@
 	
 	
       <main id="content">
+        @if (session('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
 
 	<!-- CONTENT -->
 	<section >
@@ -95,82 +101,79 @@
 
 </section >
 
-            <section class="add-products">
-    <form action="" method="post" enctype="multipart/form-data">
-        <label for="book_id">Name</label>
-        <input type="text" id="book_id" name="book_id" class="box" placeholder="Event Name" required>
-        
-        <label for="Date">Date</label>
-        <input type="Date" id="Date" min="0" name="Date" class="box" placeholder="Enter Age" required>
-        
-        
-        
-        <label for="Location">Location</label>
-        <input type="text" id="Location" name="Location" class="box" placeholder="Location" required>
-        
-        <label for="Event_Description">Event Description</label>
-        <textarea placeholder="Event Description" id="Event_Description" name="Event_Description"  class="box"> </textarea>
-        
-        
-       
-        
-        
-        
-       
-        
-        <input type="submit" value="Add Event" name="add_product" class="btn">
-    </form>
+<section class="add-products">
+
+<form action="{{ route('admin.events') }}" method="POST" enctype="multipart/form-data">
+   @csrf
+   
+       <label for="name">Event Name</label>
+       <input type="text" name="name" id="name" class="box" placeholder="Event Name" required>
+  
+
+   
+       <label for="date">Date</label>
+       <input type="date" name="date" id="date" class="box" required>
+   
+
+   
+       <label for="location">Location</label>
+       <input type="text" name="location" id="location" class="box" placeholder="Location" required>
+   
+
+  
+       <label for="description">Event Description</label>
+       <textarea name="description" id="description" class="box" placeholder="Event Description"></textarea>
+   
+
+  
+       <label for="image">Event Image</label>
+       <input type="file" name="image" id="image"accept="image/*" class="box">
+   
+
+   
+       <label for="cost">Cost</label>
+       <input type="number" name="cost" id="cost" class="box" placeholder="Cost" step="0.01" min="0" required>
+  
+
+   <input type="submit" value="Add Event" class="btn">
+</form>
+
 </section>
-
-
 
 <section class="users">
-
-   <h1 style="margin:0 0 4rem 35rem; ">Staff Section</h1>
-
-   <div class="box-container">
-      <div class="box">
-         <p> Event id : <span>1</span> </p>
-         <p> Event Date : <span>25-01-21</span> </p>
-         <p> Location : <span>coxsbazar</span> </p>
-        
-         <a href="#" onclick="return confirm('update this user?');" class="option-btn">Update</a>
-
-        
-         <a href="#" onclick="return confirm('Delete this user?');" class="delete-btn">Delete</a>
-      </div>
-      <div class="box">
-         <p> Event id : <span>1</span> </p>
-         <p> Event Date : <span>25-01-21</span> </p>
-         <p> Location : <span>coxsbazar</span> </p>
-        
-         <a href="#" onclick="return confirm('update this user?');" class="option-btn">Update</a>
-
-        
-         <a href="#" onclick="return confirm('Delete this user?');" class="delete-btn">Delete</a>
-      </div>
-      <div class="box">
-         <p> Event id : <span>1</span> </p>
-         <p> Event Date : <span>25-01-21</span> </p>
-         <p> Location : <span>coxsbazar</span> </p>
-        
-         <a href="#" onclick="return confirm('update this user?');" class="option-btn">Update</a>
-
-        
-         <a href="#" onclick="return confirm('Delete this user?');" class="delete-btn">Delete</a>
-      </div>
-      <div class="box">
-         <p> Event id : <span>1</span> </p>
-         <p> Event Date : <span>25-01-21</span> </p>
-         <p> Location : <span>coxsbazar</span> </p>
-        
-         <a href="#" onclick="return confirm('update this user?');" class="option-btn">Update</a>
-
-        
-         <a href="#" onclick="return confirm('Delete this user?');" class="delete-btn">Delete</a>
-      </div>
-
+   <div class="container mt-4">
+       <div class="row">
+           @foreach($events as $event)
+           <div class="col-md-4 mb-4">
+               <div class="card">
+                   <img src="{{ asset('images/' . $event->image) }}" class="card-img-top" alt="{{ $event->name }}"width="100%" height="225">
+                   <div class="card-body">
+                       <h5 class="card-title">{{ $event->name }}</h5>
+                       <p class="card-text">Date: {{ $event->date }}</p>
+                       <p class="card-text">Location: {{ $event->location }}</p>
+                       <p class="card-text">Cost: ${{ $event->cost }}</p>
+                       <p class="card-text">Description: {{ $event->description }}</p>
+                       <!-- <a href="#" class="option-btn">Update</a> -->
+                       
+                           <!-- <button type="submit" class="delete-btn" onclick="return confirm('Delete this event?');">Delete</button> -->
+                           <div class="d-flex ">
+                                    <a href="{{ route('admin.editEvent', $event->event_id) }}" class="option-btn">Update</a>
+                                    <form action="{{ route('admin.deleteEvent', $event->event_id) }}" method="POST" onsubmit="return confirm('Delete this event?');">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="delete-btn">Delete</button>
+                                    </form>
+                                </div>
+                   </div>
+               </div>
+           </div>
+           @endforeach
+       </div>
+   </div>
 </section>
+  
+
+
 
 
  
