@@ -18,7 +18,7 @@
 
 
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-
+	
 	<!-- Boxicons -->
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 	<!-- My CSS -->
@@ -95,30 +95,47 @@
 
 			<ul class="box-info">
 				<li>
-					<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+					<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35"fill="#1977cc" class="bi bi-person-fill" viewBox="0 0 16 16">
 						<path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
 					  </svg>
 					<span class="text">
-						<h3>1020</h3>
-						<p>Total Residents</p>
+						<!-- <h3>1020</h3> -->
+						<h3>{{ $membersCount }}</h3>
+						<p>Total Members</p>
 					</span>
 				</li>
 				<li>
-					<i class='bx bxs-calendar-check' ></i>
+					<!-- <i class='bx bxs-calendar-check' ></i> -->
+				
+
+					<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="#1977cc" class="bi bi-person-fill" viewBox="0 0 16 16">
+						<path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+					  </svg>
 					<span class="text">
-						<h3>1020</h3>
+						<!-- <h3>1020</h3> -->
+						<h3>{{ $staffsCount }}</h3>
 						<p>Total Staffs</p>
 					</span>
 				</li>
 				<li>
-					<i class='bx bxs-calendar-check' ></i>
+					<!-- <i class='bx bxs-calendar-check' ></i> -->
+					<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="#1977cc" class="bi bi-house" viewBox="0 0 16 16">
+  <path d="M8 3.293l-6 6V15a1 1 0 0 0 1 1h4v-4h2v4h4a1 1 0 0 0 1-1V9.293l-6-6z"/>
+  <path d="M1 7.5L8 1l7 6.5V14a2 2 0 0 1-2 2h-3v-5H5v5H2a2 2 0 0 1-2-2V7.5z"/>
+</svg>
+
+
 					<span class="text">
-						<h3>1020</h3>
+						<h3>50</h3>
 						<p>Total Rooms</p>
 					</span>
 				</li>
 				<li>
-					<i class='bx bxs-calendar-check' ></i>
+					<!-- <i class='bx bxs-calendar-check' ></i> -->
+					<i class='bx bxs-dollar-circle'style='color: #ff0000;' ></i>
+					
+
+
 					<span class="text">
 						<h3>1020</h3>
 						<p>Donation</p>
@@ -126,23 +143,45 @@
 				</li>
 				<li>
 					
-					<i class='bx bxs-group' ></i>
+					<!-- <i class='bx bxs-group' ></i> -->
+					<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+  <path d="M8 1v14M1 8h14" stroke="#007bff" stroke-width="2" stroke-linecap="round"/>
+</svg>
+
+
+
+
+
+
+
 					<span class="text">
-						<h3>2834</h3>
+						<h3>28</h3>
 						<p>Doctors</p>
 					</span>
 				</li>
 				<li>
-					<i class='bx bxs-dollar-circle' ></i>
+					<!-- <i class='bx bxs-dollar-circle' ></i> -->
+					<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="#1977cc" class="bi bi-calendar-check" viewBox="0 0 16 16">
+  <path d="M12 0a.5.5 0 0 1 .5.5V1h2V.5A.5.5 0 0 1 15 0h1a.5.5 0 0 1 .5.5V1h.5a.5.5 0 0 1 .5.5V15a.5.5 0 0 1-.5.5H1a.5.5 0 0 1-.5-.5V2a.5.5 0 0 1 .5-.5H1V.5A.5.5 0 0 1 1.5 0h1a.5.5 0 0 1 .5.5V1h2V.5A.5.5 0 0 1 5 0h2a.5.5 0 0 1 .5.5V1h4V.5A.5.5 0 0 1 12 0zM2 2v13h12V2H2zm6.854 8.646a.5.5 0 0 1-.708-.708L10 8.793l1.146-1.146a.5.5 0 0 1 .708.708L10 9.707l-2.146 2.146z"/>
+</svg>
+
+
+
 					<span class="text">
-						<h3>2543</h3>
+						<!-- <h3>2543</h3> -->
+						<h3>{{ $eventsCount }}</h3>
 						<p>Events</p>
 					</span>
 				</li>
 				<li>
-					<i class='bx bxs-dollar-circle' ></i>
+					<!-- <i class='bx bxs-dollar-circle' ></i> -->
+					<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill=" #ff0000" class="bi bi-chat-dots" viewBox="0 0 16 16">
+  <path d="M2 1a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4l-3 3a1 1 0 0 1-1.5-1V2a1 1 0 0 1 1-1zm1 1v11.586L3.414 13H12V2H3z"/>
+</svg>
+
 					<span class="text">
-						<h3>2543</h3>
+						<!-- <h3>2543</h3> -->
+						<h3>{{ $messagesCount }}</h3>
 						<p>Messages</p>
 					</span>
 				</li>
@@ -224,4 +263,3 @@
 	<script src="script.js"></script>
 </body>
 </html>
-

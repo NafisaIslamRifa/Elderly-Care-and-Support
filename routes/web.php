@@ -140,4 +140,5 @@ Route::post('/ipn', [SslCommerzPaymentController::class, 'ipn']);
 
 
 
-
+//query
+Route::get('/admin/dashboard', [AdminDashboardController::class, 'count'])->name('admin.dashboard');
