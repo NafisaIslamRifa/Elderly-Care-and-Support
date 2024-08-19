@@ -64,6 +64,13 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('/admin/Messages', [MessagesController::class, 'index'])->name('admin.message');
 
 
+    Route::POST('/admin/dashboard/{id}', [AdminDashboardController::class, 'accept'])->name('admin.paymentaccept');
+
+
+
+
+
+
 
 
 

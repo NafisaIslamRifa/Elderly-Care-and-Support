@@ -181,7 +181,7 @@
 				</svg>
 				<span class="text">
 					<!-- <h3>1020</h3> -->
-					<h3>{{ $membersCount }}</h3>
+					<h3>{{$membersCount}}</h3>
 					<p>Total Members</p>
 				</span>
 			</li>
@@ -301,10 +301,19 @@
 							<td>
 								<p>{{ $donation->name }}</p>
 							</td>
-							<td>${{ number_format($donation->amount, 2) }}</td>
-							<td><span style="color: #008000;  font-size: 12px; " class="status {{ strtolower($donation->status) }}">{{ ucfirst($donation->status) }}
-								 <td>
-								 <a href="#" class="btn btn-danger btn-sm">Update</a>
+							<td>{{ number_format($donation->amount, 2) }}</td>
+							<td>{{ ($donation->status) }}</td>
+
+
+							<td>
+									
+									
+									<form action="{{ route('admin.paymentaccept', $donation->id	) }}" method="post" enctype="multipart/form-data"> 
+										@csrf
+										<button type="submit" class="btn btn-success btn-sm">Accept</button>
+									</form>
+									
+									
 								 </td>
                        
 						</tr>
