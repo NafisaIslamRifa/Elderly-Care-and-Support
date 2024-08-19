@@ -52,7 +52,7 @@
     <li><a href="{{ route('admin.event') }}" class="active">Events</a></li>
     <li><a href="{{ route('admin.message') }}">Messages</a></li>
     <li><a href="{{ route('admin.budget') }}">Budget</a></li>
-
+    <li><a href="{{ route('admin.food') }}">Food</a></li>
     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#!" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Hello, nasif </a>
                        
@@ -157,7 +157,7 @@
                        
                            <!-- <button type="submit" class="delete-btn" onclick="return confirm('Delete this event?');">Delete</button> -->
                            <div class="d-flex ">
-                                    <a href="{{ route('admin.editEvent', $event->event_id) }}" class="option-btn">Update</a>
+                                    <a href="{{ route('admin.editEvent', $event->event_id) }}" class="option-btn me-2">Update</a>
                                     <form action="{{ route('admin.deleteEvent', $event->event_id) }}" method="POST" onsubmit="return confirm('Delete this event?');">
                                         @csrf
                                         @method('DELETE')

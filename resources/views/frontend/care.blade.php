@@ -170,7 +170,7 @@
 
       <div class="col-md-7  px-3">
         <div class="card-block px-6">
-        <h4 class="card-title"style="color:  #8A2BE2;">HouseKeeping</h4>
+        <h4 class="card-title"style="color:  #0047AB;">HouseKeeping</h4>
           <p class="card-text">
           At Care Home, our housekeeping services ensure that residents' living spaces are clean, safe, and well-maintained. Regular cleaning, maintenance tasks are carried out by our dedicated staff to provide a comfortable and hygienic environment for all residents.
           </p>
@@ -202,7 +202,7 @@
 
       <div class="col-md-7 px-3">
         <div class="card-block px-6">
-        <h4 class="card-title" style="color:  #8A2BE2;">Laundry</h4>
+        <h4 class="card-title" style="color:  #0047AB;">Laundry</h4>
          
           <p class="card-text">
           At Care Home, our laundry services ensure that residents' clothing and linens are regularly washed, dried, and neatly folded. We handle all laundry needs with care and attention to detail, providing fresh and clean items to enhance the residents' comfort and well-being
@@ -230,7 +230,7 @@
 
       <div class="col-md-7 px-3">
         <div class="card-block px-6">
-        <h4 class="card-title"style="color:  #8A2BE2;">Security</h4>
+        <h4 class="card-title"style="color:  #0047AB;">Security</h4>
           
           <p class="card-text">
           At Care Home, we prioritize the safety and security of our residents with a comprehensive system that includes CCTV cameras. Our surveillance system monitors common areas and entrances 24/7, ensuring a secure environment and providing peace of mind for residents and their families.

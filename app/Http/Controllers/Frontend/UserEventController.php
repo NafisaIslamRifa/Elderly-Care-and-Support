@@ -14,7 +14,7 @@ class UserEventController extends Controller
 
     public function get()
     {
-        $events = Event::all(); // Retrieve all events
+        $events = Event::all(); 
         foreach ($events as $event) {
             $event->image_url = asset('frontend/images/' . $event->image);
         }

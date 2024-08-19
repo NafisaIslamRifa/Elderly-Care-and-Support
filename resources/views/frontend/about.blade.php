@@ -191,23 +191,25 @@
       <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
         <i class="fas fa-walking"></i>
         <div class="stats-item">
-          <span data-purecounter-start="0" data-purecounter-end="850" data-purecounter-duration="1" class="purecounter"></span>
+          <span data-purecounter-start="0" data-purecounter-end="{{ $membersCount }}" data-purecounter-duration="1" class="purecounter"></span>
           <p>Residents</p>
         </div>
       </div><!-- End Stats Item -->
 
       <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
-        <i class="fas fa-bed"></i>
+        <!-- <i class="fas fa-bed"></i> -->
+        <i class="fas fa-calendar-check"></i>
+
         <div class="stats-item">
-          <span data-purecounter-start="0" data-purecounter-end="180" data-purecounter-duration="1" class="purecounter"></span>
-          <p>Accommodation</p>
+          <span data-purecounter-start="0" data-purecounter-end="{{ $eventsCount }}" data-purecounter-duration="1" class="purecounter"></span>
+          <p>Events</p>
         </div>
       </div><!-- End Stats Item -->
 
       <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
         <i class="fas fa-restroom"></i>
         <div class="stats-item">
-          <span data-purecounter-start="0" data-purecounter-end="12" data-purecounter-duration="1" class="purecounter"></span>
+          <span data-purecounter-start="0" data-purecounter-end="{{ $staffsCount }}" data-purecounter-duration="1" class="purecounter"></span>
           <p>Care Givers</p>
         </div>
       </div><!-- End Stats Item -->
@@ -215,7 +217,7 @@
       <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
         <i class="fas fa-hand-holding-usd"></i>
         <div class="stats-item">
-          <span data-purecounter-start="0" data-purecounter-end="150" data-purecounter-duration="1" class="purecounter"></span>
+          <span data-purecounter-start="0" data-purecounter-end="{{ $donationsCount }}" data-purecounter-duration="1" class="purecounter"></span>
           <p>Donation</p>
         </div>
       </div><!-- End Stats Item -->

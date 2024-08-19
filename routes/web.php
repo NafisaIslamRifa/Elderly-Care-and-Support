@@ -9,7 +9,7 @@ use App\Http\Controllers\admin\MessagesController;
 use App\Http\Controllers\admin\StaffController;
 use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\LoginController;
-
+use App\Http\Controllers\Admin\AdminFoodController;
 
 
 use Illuminate\Support\Facades\Route;
@@ -80,9 +80,14 @@ Route::get("/account/shelter",[ShelterController::class,"index"])->name('account
 
 Route::get("/account/care",[CareController::class,"index"])->name('account.care');
 Route::get("/account/food",[FoodController::class,"index"])->name('account.food');
+Route::get("/account/food",[FoodController::class,"get"])->name('account.food');
 
-
-
+Route::get("/admin/food",[AdminFoodController::class,"index"])->name('admin.food');
+Route::post('/admin/food', [AdminFoodController::class, 'addFood'])->name('admin.food');
+Route::get("/admin/food",[AdminFoodController::class,"get"])->name('admin.food');
+Route::delete('/admin/food/{id}', [AdminFoodController::class, 'delete'])->name('admin.deleteFood');
+Route::get('admin/food/{id}/edit', [AdminFoodController::class, 'edit'])->name('admin.editFood');
+Route::put('admin/food/{id}', [AdminFoodController::class, 'update'])->name('admin.updateFood');
 
 Route::get("/account/contact",[ContactController::class,"index"])->name('account.contact');
 Route::POST("/account/contact",[ContactController::class,"AddContact"])->name('account.Addcontact');
@@ -140,5 +145,7 @@ Route::post('/ipn', [SslCommerzPaymentController::class, 'ipn']);
 
 
 
-//query
+//query in adminDashboard
 Route::get('/admin/dashboard', [AdminDashboardController::class, 'count'])->name('admin.dashboard');
+//query in stats of front
+Route::get("/account/about",[AboutController::class,"count"])->name('account.about');
