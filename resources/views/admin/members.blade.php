@@ -33,8 +33,10 @@
                 <li><a href="{{ route('admin.Staff') }}">Staffs</a></li>
                 <li><a href="{{ route('admin.event') }}">Events</a></li>
                 <li><a href="{{ route('admin.message') }}">Messages</a></li>
-                <li><a href="{{ route('admin.budget') }}">Budget</a></li>
+               
                 <li><a href="{{ route('admin.food') }}">Food</a></li>
+                <li><a href="{{ route('admin.maintenance') }}">Maintenance</a></li>
+                <li><a href="{{ route('admin.budget') }}">Budget</a></li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#!" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Hello, nasif </a>
                     <ul class="dropdown-menu border-0 shadow bsb-zoomIn" aria-labelledby="accountDropdown">

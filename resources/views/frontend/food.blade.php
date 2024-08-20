@@ -236,9 +236,9 @@
                             <p class="card-text">
                                 <span style="color:#32CD32; font-weight: 600;">Dinner:</span> {{ $food->dinner }}
                             </p>
-                            <p class="card-text">
-                                <span style="color:#0047AB; font-weight: 600;">Cost:</span> ${{ $food->cost }}
-                            </p>
+                            <!-- <p class="card-text">
+                                <span style="color:#0047AB; font-weight: 600;">Cost:</span> {{ $food->cost }}
+                            </p> -->
 
                             <div class="d-flex justify-content-between align-items-center">
                                 <!-- Add any additional content or functionality here if needed -->

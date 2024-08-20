@@ -10,6 +10,7 @@ use App\Http\Controllers\admin\StaffController;
 use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Admin\AdminFoodController;
+use App\Http\Controllers\Admin\MaintenanceController;
 
 
 use Illuminate\Support\Facades\Route;
@@ -156,3 +157,12 @@ Route::post('/ipn', [SslCommerzPaymentController::class, 'ipn']);
 Route::get('/admin/dashboard', [AdminDashboardController::class, 'count'])->name('admin.dashboard');
 //query in stats of front
 Route::get("/account/about",[AboutController::class,"count"])->name('account.about');
+
+
+//maintenance
+Route::get("/admin/maintenance",[MaintenanceController::class,"index"])->name('admin.maintenance');
+Route::post('/admin/maintenance', [MaintenanceController::class, 'addMaintenance'])->name('admin.maintenance');
+Route::get("/admin/maintenance",[MaintenanceController::class,"get"])->name('admin.maintenance');
+Route::delete('/admin/maintenance/{id}', [MaintenanceController::class, 'delete'])->name('admin.deleteMaintenance');
+Route::get('/admin/maintenance/{id}/edit', [MaintenanceController::class, 'edit'])->name('admin.editMaintenance');
+Route::put('/admin/maintenance/{id}', [MaintenanceController::class, 'update'])->name('admin.updateMaintenance');

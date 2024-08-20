@@ -40,9 +40,10 @@
     
     <li><a href="{{ route('admin.event') }}">Events</a></li>
     <li><a href="{{ route('admin.message') }}">Messages</a></li>
-    <li><a href="{{ route('admin.budget') }}">Budget</a></li>
+   
     <li><a href="{{ route('admin.food') }}"class="active">Food</a></li>
-
+	<li><a href="{{ route('admin.maintenance') }}">Maintenance</a></li>
+	<li><a href="{{ route('admin.budget') }}">Budget</a></li>
 
     <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#!" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Hello, {{ Auth::user()->name }}</a>
@@ -126,7 +127,7 @@
 								<p class="card-text">Breakfast: {{ $food->breakfast }}</p>
 								<p class="card-text">Lunch: {{ $food->lunch }}</p>
 								<p class="card-text">Dinner: {{ $food->dinner }}</p>
-								<p class="card-text">Cost: ${{ $food->cost }}</p>
+								<p class="card-text">Cost: {{ $food->cost }}Tk.</p>
 								<div class="d-flex">
                                 <a href="{{ route('admin.editFood', $food->id) }}" class="option-btn me-2">Update</a>
 									<form action="{{ route('admin.deleteFood', $food->id) }}" method="POST" onsubmit="return confirm('Delete this food item?');">

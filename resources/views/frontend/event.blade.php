@@ -178,7 +178,7 @@
                             <p class="card-text" style="color:#1977cc">Location: {{ $event->location }}</p>
                             <p class="card-text">{{ $event->description }}</p>
                             <div class="d-flex justify-content-between align-items-center">
-                                <!-- Add any additional content or functionality here if needed -->
+                               
                             </div>
                         </div>
                     </div>

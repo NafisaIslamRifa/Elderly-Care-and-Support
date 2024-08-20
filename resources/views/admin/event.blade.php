@@ -51,8 +51,10 @@
     
     <li><a href="{{ route('admin.event') }}" class="active">Events</a></li>
     <li><a href="{{ route('admin.message') }}">Messages</a></li>
-    <li><a href="{{ route('admin.budget') }}">Budget</a></li>
+    
     <li><a href="{{ route('admin.food') }}">Food</a></li>
+    <li><a href="{{ route('admin.maintenance') }}">Maintenance</a></li>
+    <li><a href="{{ route('admin.budget') }}">Budget</a></li>
     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#!" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Hello, nasif </a>
                        
@@ -151,7 +153,7 @@
                        <h5 class="card-title">{{ $event->name }}</h5>
                        <p class="card-text">Date: {{ $event->date }}</p>
                        <p class="card-text">Location: {{ $event->location }}</p>
-                       <p class="card-text">Cost: ${{ $event->cost }}</p>
+                       <p class="card-text">Cost: {{ $event->cost }}Tk.</p>
                        <p class="card-text">Description: {{ $event->description }}</p>
                        <!-- <a href="#" class="option-btn">Update</a> -->
                        
