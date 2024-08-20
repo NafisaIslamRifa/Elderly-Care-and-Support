@@ -11,7 +11,7 @@ class BudgetController extends Controller
 {
     public function index()
     {
-        $messagesCount = DB::table('contacts')->count();
+        
         $eventsCost = DB::table('events') ->whereYear('date', '=', date('Y'))
         ->whereMonth('date', '=', date('m'))
         
@@ -62,7 +62,7 @@ class BudgetController extends Controller
     $topDonations = Donation::orderBy('id','desc')
     
     ->get(['name',  'amount', 'status','transaction_id','id']); 
-        return view('admin.budget', compact('messagesCount', 'eventsCost','FoodCost','staffsSalary','donationsAmount','MaintenanceCost','donationsByMonth'));
+        return view('admin.budget', compact('eventsCost','FoodCost','staffsSalary','donationsAmount','MaintenanceCost','donationsByMonth'));
         
     }
 }

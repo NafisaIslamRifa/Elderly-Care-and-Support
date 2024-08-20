@@ -58,7 +58,7 @@
                                     <div class="col-12">
                                         <hr class="mt-5 mb-4 border-secondary-subtle">
                                         <div class="d-flex gap-2 gap-md-4 flex-column flex-md-row justify-content-center">
-                                            
+                                            <a href="{{ route('account.login') }}" class="link-secondary text-decoration-none">User Login</a>
                                         </div>
                                     </div>
                                 </div>
