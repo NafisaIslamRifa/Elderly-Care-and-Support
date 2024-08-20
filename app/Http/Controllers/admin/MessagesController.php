@@ -5,6 +5,8 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Contact;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\UserMessage;
 
 class MessagesController extends Controller
 {
@@ -50,4 +52,33 @@ class MessagesController extends Controller
 
         return redirect()->route('admin.message')->with('success', 'Message updated successfully.');
     }
+    public function sendMessage(Request $request, $contact_id)
+    {
+        // Validate the request input
+        $request->validate([
+            'admin_message' => 'required|string|max:5000',
+        ]);
+    
+        // Find the contact by the passed ID
+        $contact = Contact::where('contact_id', $contact_id)->first();
+    
+        if ($contact) {
+            // Get the user's email
+            $to = $contact->email;
+            
+            // Get the admin's message from the request
+            $adminMessage = $request->input('admin_message');
+            $subject = "Reply from CareHome";
+    
+            // Send the email
+            Mail::to($to)->send(new UserMessage($adminMessage, $subject));
+    
+            // Optionally, add a flash message to indicate success
+            return redirect()->route('admin.message')->with('success', 'Reply sent to user successfully.');
+        } else {
+            // Handle the case where the contact isn't found
+            return redirect()->route('admin.message')->with('error', 'User not found.');
+        }
+    }
+    
 }

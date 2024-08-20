@@ -34,31 +34,31 @@
     <section>
         <div class="head-title">
             <div class="center">
-                <h1>UPDATE MESSAGE</h1>
+                <h1>REPLY MESSAGE</h1>
             </div>
         </div>
     </section>
     <!-- Modal -->
     <section class="add-products">
-    <form action="{{ route('admin.messageUpdate', $contact->contact_id) }}" method="POST" enctype="multipart/form-data">
-        @csrf
-        @method('PUT')
+    <!-- <form action="{{ route('admin.messageUpdate', $contact->contact_id) }}" method="POST" enctype="multipart/form-data"> -->
+    <form action="{{ route('sendMessage', $contact->contact_id) }}" method="POST">
+    @csrf
+    <div class="form-header">
+        <button type="button" class="btn-close" style="margin-left:90%; margin-top:5px; cursor: pointer; color: #000;" onclick="redirectToContacts()"></button>
+    </div>
 
-        <div class="form-header">
-            <button type="button" class="btn-close" style="margin-left:90%; margin-top:5px; cursor: pointer; color: #000;" onclick="redirectToContacts()"></button>
-        </div>
+    <label for="user_id">User ID</label>
+    <input type="text" id="user_id" name="user_id" class="box" value="{{ $contact->user_id }}" readonly>
 
-        <label for="user_id">User ID</label>
-        <input type="text" id="user_id" name="user_id" class="box" value="{{ $contact->user_id }}" readonly>
+    <label for="name">User Name</label>
+    <input type="text" id="name" name="name" class="box" value="{{ $contact->name }}">
 
-        <label for="name">User Name</label>
-        <input type="text" id="name" name="name" class="box" value="{{ $contact->name }}">
+    <label for="admin_message">Message</label>
+    <textarea id="admin_message" name="admin_message" class="box" required></textarea>
 
-        <label for="message">Message</label>
-        <textarea id="message" name="message" class="box">{{ $contact->message }}</textarea>
+    <input type="submit" value="Send Message" class="btn">
+</form>
 
-        <input type="submit" value="Update Message" name="update_message" class="btn">
-    </form>
 </section>
 
 

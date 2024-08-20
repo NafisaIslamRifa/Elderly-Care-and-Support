@@ -113,7 +113,7 @@
                         <p> User Name: <span>{{ $contact->name }}</span> </p>
                         <p> Message: <span>{{ $contact->message }}</span> </p>
                         <!-- <a href="#" onclick="return confirm('Update this message?');" class="option-btn">Update</a> -->
-                        <a href="{{ route('admin.messageEdit', $contact->contact_id) }}" class="option-btn">Update</a>
+                        <a href="{{ route('admin.messageEdit', $contact->contact_id) }}" class="option-btn">Reply</a>
 
                        
                         <a href="{{ route('admin.messageDelete', $contact->contact_id) }}" onclick="return confirm('Delete this message?');" class="delete-btn">Delete</a>

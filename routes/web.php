@@ -106,6 +106,8 @@ Route::get('admin/delete/{contact_id}', [MessagesController::class, 'delete'])->
 Route::get('admin/messages/{contact_id}/edit', [MessagesController::class, 'edit'])->name('admin.messageEdit');
 Route::put('admin/messages/{contact_id}', [MessagesController::class, 'update'])->name('admin.messageUpdate');
 
+Route::post('messages/{contact_id}/send', [MessagesController::class, 'sendMessage'])->name('sendMessage');
+
 
 Route::get('/admin/Event', [EventController::class, 'index'])->name('admin.event');
 Route::post('/admin/Event', [EventController::class, 'addEvent'])->name('admin.events');

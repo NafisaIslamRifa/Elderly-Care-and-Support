@@ -126,10 +126,10 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Month: {{ $maintenance->month }}</h5>
-                        <p class="card-text">Electricity Cost: {{ number_format($maintenance->electricity_cost, 2) }}</p>
-                        <p class="card-text">Gas Cost: {{ number_format($maintenance->gas_cost, 2) }}</p>
-                        <p class="card-text">Daily Cleaning Cost: {{ number_format($maintenance->daily_cleaning_cost, 2) }}</p>
-                        <p class="card-text">Security Cost: {{ number_format($maintenance->security_cost, 2) }}</p>
+                        <p class="card-text">Electricity Cost: {{ number_format($maintenance->electricity_cost, 2) }}Tk.</p>
+                        <p class="card-text">Gas Cost: {{ number_format($maintenance->gas_cost, 2) }}Tk.</p>
+                        <p class="card-text">Daily Cleaning Cost: {{ number_format($maintenance->daily_cleaning_cost, 2) }}Tk.</p>
+                        <p class="card-text">Security Cost: {{ number_format($maintenance->security_cost, 2) }}Tk.</p>
                         <div class="d-flex">
                         <a href="{{ route('admin.editMaintenance', $maintenance->id) }}" class="option-btn me-2">Update</a>
                         <form action="{{ route('admin.deleteMaintenance', $maintenance->id) }}" method="POST" onsubmit="return confirm('Delete this maintenance record?');">
