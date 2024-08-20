@@ -135,7 +135,7 @@
 
 
 					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#!" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Hello, {{ Auth::user()->name }}</a>
+						<a class="nav-link dropdown-toggle" href="#!" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Hello, {{ Auth::user()->name }} </a>
 
 						<ul class="dropdown-menu border-0 shadow bsb-zoomIn" aria-labelledby="accountDropdown">
 							<li>
@@ -216,8 +216,8 @@
 
 
 				<span class="text">
-					<h3>50</h3>
-					<p>Total Rooms</p>
+					<h3>{{50-$membersCount}}</h3>
+					<p>Available seat</p>
 				</span>
 			</li>
 			<li>

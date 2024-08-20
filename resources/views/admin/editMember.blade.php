@@ -71,7 +71,7 @@
             <label for="contact_number">Contact Number</label>
             <input type="tel" id="contact_number" name="contact_number" class="box" value="{{ $member->contact_number }}" required>
 
-            <label for="room_number">Room Number</label>
+            <label for="room_number">Seat Number</label>
             <input type="text" id="room_number" name="room_number" class="box" value="{{$member->room_number}}" required>
 
             <label for="disease">Disease</label>

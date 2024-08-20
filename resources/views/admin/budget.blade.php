@@ -54,7 +54,7 @@
 			<li><a href="{{ route('admin.maintenance') }}">Maintenance</a></li>
 			<li><a href="{{ route('admin.budget') }}" class="active">Budget</a></li>
 			<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#!" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Hello, nasif </a>
+						<a class="nav-link dropdown-toggle" href="#!" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Hello, {{ Auth::user()->name }}</a>
 					   
 						<ul class="dropdown-menu border-0 shadow bsb-zoomIn" aria-labelledby="accountDropdown">                          
 							<li>
@@ -97,61 +97,41 @@
 
 			<ul class="box-info">
 				<li>
-					<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
-						<path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
-					  </svg>
-					<span class="text">
-						<h3>1020</h3>
-						<p>Medication</p>
-					</span>
-				</li>
-				<li>
 					<i class='bx bxs-calendar-check' ></i>
 					<span class="text">
-						<h3>1020</h3>
-						<p>Salary</p>
-					</span>
-				</li>
-				<li>
-					<i class='bx bxs-calendar-check' ></i>
-					<span class="text">
-						<h3>1020</h3>
-						<p>Doctor Fees</p>
-					</span>
-				</li>
-				<li>
-					<i class='bx bxs-calendar-check' ></i>
-					<span class="text">
-						<h3>1020</h3>
+						<h3>{{ $donationsAmount }}</h3>
 						<p>Total Donation</p>
 					</span>
 				</li>
+			
 				<li>
-					
-					<i class='bx bxs-group' ></i>
+					<i class='bx bxs-calendar-check' ></i>
 					<span class="text">
-						<h3>2834</h3>
-						<p>Utility Cost</p>
+						<h3>{{  $staffsSalary }}</h3>
+						<p>Staff Salary</p>
 					</span>
 				</li>
+				
+				
+				
 				<li>
 					<i class='bx bxs-dollar-circle' ></i>
 					<span class="text">
-						<h3>2543</h3>
+						<h3>{{ $eventsCost }}</h3>
 						<p>Events Cost</p>
 					</span>
 				</li>
 				<li>
 					<i class='bx bxs-dollar-circle' ></i>
 					<span class="text">
-						<h3>2543</h3>
+						<h3>{{$MaintenanceCost}}</h3>
 						<p>Maintenance Cost</p>
 					</span>
 				</li>
                 <li>
 					<i class='bx bxs-dollar-circle' ></i>
 					<span class="text">
-						<h3>2543</h3>
+						<h3>{{ $FoodCost }}</h3>
 						<p>Food Cost</p>
 					</span>
 				</li>
@@ -169,20 +149,50 @@
     </div>
 </div>
 
+@php
+    $monthMapping = [
+        'January' => 'Jan',
+        'February' => 'Feb',
+        'March' => 'Mar',
+        'April' => 'Apr',
+        'May' => 'May',
+        'June' => 'Jun',
+        'July' => 'Jul',
+        'August' => 'Aug',
+        'September' => 'Sep',
+        'October' => 'Oct',
+        'November' => 'Nov',
+        'December' => 'Dec'
+    ];
+
+    $months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul','Aug','Sep','Oct','Nov','Dec'];
+    $donationsAmount = [];
+
+    foreach ($months as $month) {
+        $fullMonthName = array_search($month, $monthMapping);
+        $donationsAmount[] = $donationsByMonth[$fullMonthName] ?? 0; // Use 0 if there's no data for the month
+    }
+@endphp
+
+
+
+
 <script>
     const pieData = {
         labels: [
-            'Red',
-            'Blue',
-            'Yellow'
+            'Staff Salary',
+            'Maintenance Cost',
+            'Food Cost',
+			'Event Cost'
         ],
         datasets: [{
             label: 'My First Dataset',
-            data: [300, 50, 100],
+            data: [{{$staffsSalary }}, {{$MaintenanceCost }}, {{  $FoodCost }},{{ $eventsCost }}],
             backgroundColor: [
                 'rgb(255, 99, 132)',
                 'rgb(54, 162, 235)',
-                'rgb(255, 205, 86)'
+                'rgb(255, 205, 86)',
+				'rgb(255, 100, 25)'
             ],
             hoverOffset: 4
         }]
@@ -193,44 +203,52 @@
         data: pieData,
     };
 
-    const barData = {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-        datasets: [{
-            label: 'My First Dataset',
-            data: [65, 59, 80, 81, 56, 55, 40],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(255, 159, 64, 0.2)',
-                'rgba(255, 205, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(201, 203, 207, 0.2)'
-            ],
-            borderColor: [
-                'rgb(255, 99, 132)',
-                'rgb(255, 159, 64)',
-                'rgb(255, 205, 86)',
-                'rgb(75, 192, 192)',
-                'rgb(54, 162, 235)',
-                'rgb(153, 102, 255)',
-                'rgb(201, 203, 207)'
-            ],
-            borderWidth: 1
-        }]
-    };
+	
 
-    const barConfig = {
-        type: 'bar',
-        data: barData,
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
+	const donationsAmount = <?php echo json_encode($donationsAmount); ?>;
+
+const barData = {
+    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul','Aug','Sep','Oct','Nov','Dec'],
+    datasets: [{
+        label: 'Monthly Donations',
+        data: donationsAmount,
+        backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(255, 159, 64, 0.2)',
+            'rgba(255, 205, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(201, 203, 207, 0.2)'
+        ],
+        borderColor: [
+            'rgb(255, 99, 132)',
+            'rgb(255, 159, 64)',
+            'rgb(255, 205, 86)',
+            'rgb(75, 192, 192)',
+            'rgb(54, 162, 235)',
+            'rgb(153, 102, 255)',
+            'rgb(201, 203, 207)'
+        ],
+        borderWidth: 1
+    }]
+};
+
+
+
+
+const barConfig = {
+    type: 'bar',
+    data: barData,
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
             }
         }
-    };
+    }
+};
+
 
     window.onload = function() {
         var pieCtx = document.getElementById('myPieChart').getContext('2d');

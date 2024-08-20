@@ -22,6 +22,7 @@ class AdminDashboardController extends Controller
         $membersCount = DB::table('members')->count();
         $staffsCount = DB::table('staffs')->count();
         $donationsCount = DB::table('donations')->count();
+        
 
         // Fetch the top 5 donations ordered by amount
    

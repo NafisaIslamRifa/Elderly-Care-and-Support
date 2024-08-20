@@ -38,7 +38,7 @@
                 <li><a href="{{ route('admin.maintenance') }}">Maintenance</a></li>
                 <li><a href="{{ route('admin.budget') }}">Budget</a></li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#!" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Hello, nasif </a>
+                    <a class="nav-link dropdown-toggle" href="#!" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Hello, {{ Auth::user()->name }} </a>
                     <ul class="dropdown-menu border-0 shadow bsb-zoomIn" aria-labelledby="accountDropdown">
                         <li><a class="dropdown-item" href="{{ route('admin.logout') }}">Logout</a></li>
                     </ul>
@@ -84,7 +84,7 @@
             <label for="contact_number">Contact Number</label>
             <input type="tel" id="contact_number" name="contact_number" class="box" placeholder="Contact Number" required>
 
-            <label for="room_number">Room Number</label>
+            <label for="room_number">Seat Number</label>
             <input type="text" id="room_number" name="room_number" class="box" placeholder="Enter Room Number" required>
 
             <label for="disease">Disease</label>
@@ -108,7 +108,7 @@
                 <div class="box">
                     <p>User id: <span>{{ $member->id }}</span></p>
                     <p>Username: <span>{{ $member->name }}</span></p>
-                    <p>Room number: <span>{{ $member->room_number }}</span></p>
+                    <p>Seat number: <span>{{ $member->room_number }}</span></p>
                     <p>Disease: <span>{{ $member->disease }}</span></p>
                     <p>Assign Staff ID: <span>{{ $member->staff_id }}</span></p>
                     <a href="{{ route('admin.editMember', $member->id) }}" class="option-btn">Update</a>
