@@ -47,21 +47,9 @@
                     <button type="button" class="btn-close" style="margin-left:90%; margin-top:5px;cursor: pointer;color: #000;" onclick="redirectToMaintenance()"></button>
                 </div>
 
-                <label for="month">Month</label>
-                <select id="month" name="month" class="box" required>
-                    <option value="January" {{ $maintenance->month == 'January' ? 'selected' : '' }}>January</option>
-                    <option value="February" {{ $maintenance->month == 'February' ? 'selected' : '' }}>February</option>
-                    <option value="March" {{ $maintenance->month == 'March' ? 'selected' : '' }}>March</option>
-                    <option value="April" {{ $maintenance->month == 'April' ? 'selected' : '' }}>April</option>
-                    <option value="May" {{ $maintenance->month == 'May' ? 'selected' : '' }}>May</option>
-                    <option value="June" {{ $maintenance->month == 'June' ? 'selected' : '' }}>June</option>
-                    <option value="July" {{ $maintenance->month == 'July' ? 'selected' : '' }}>July</option>
-                    <option value="August" {{ $maintenance->month == 'August' ? 'selected' : '' }}>August</option>
-                    <option value="September" {{ $maintenance->month == 'September' ? 'selected' : '' }}>September</option>
-                    <option value="October" {{ $maintenance->month == 'October' ? 'selected' : '' }}>October</option>
-                    <option value="November" {{ $maintenance->month == 'November' ? 'selected' : '' }}>November</option>
-                    <option value="December" {{ $maintenance->month == 'December' ? 'selected' : '' }}>December</option>
-                </select>
+                
+                <label for="date">Date</label>
+                <input type="date" id="date" name="date" class="box" value="{{ $maintenance->date }}" required>
 
                 <label for="electricity_cost">Electricity Cost</label>
                 <input type="number" id="electricity_cost" name="electricity_cost" class="box" value="{{ $maintenance->electricity_cost }}" step="0.01" min="0" required>

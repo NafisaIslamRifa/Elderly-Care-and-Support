@@ -16,7 +16,8 @@ class MaintenanceController extends Controller
 {
    
     $validatedData = $request->validate([
-        'month' => 'required|in:January,February,March,April,May,June,July,August,September,October,November,December',
+        
+        'date' => 'required|date',
         'electricity_cost' => 'required|numeric|min:0',
         'gas_cost' => 'required|numeric|min:0',
         'daily_cleaning_cost' => 'required|numeric|min:0',
@@ -27,7 +28,8 @@ class MaintenanceController extends Controller
 
    
     $maintenance = new Maintenance([
-        'month' => $validatedData['month'],
+       
+        'date' => $validatedData['date'],
         'electricity_cost' => $validatedData['electricity_cost'],
         'gas_cost' => $validatedData['gas_cost'],
         'daily_cleaning_cost' => $validatedData['daily_cleaning_cost'],
@@ -73,7 +75,8 @@ public function edit($maintenance_id)
 public function update(Request $request, $maintenance_id)
 {
     $validatedData = $request->validate([
-        'month' => 'required|in:January,February,March,April,May,June,July,August,September,October,November,December',
+        
+        'date' => 'required|date',
         'electricity_cost' => 'required|numeric|min:0',
         'gas_cost' => 'required|numeric|min:0',
         'daily_cleaning_cost' => 'required|numeric|min:0',
@@ -83,7 +86,8 @@ public function update(Request $request, $maintenance_id)
     $maintenance = Maintenance::findOrFail($maintenance_id);
 
     $maintenance->update([
-        'month' => $validatedData['month'],
+        
+        'date' => $validatedData['date'],
         'electricity_cost' => $validatedData['electricity_cost'],
         'gas_cost' => $validatedData['gas_cost'],
         'daily_cleaning_cost' => $validatedData['daily_cleaning_cost'],

@@ -12,7 +12,7 @@ class Maintenance extends Model
     protected $primaryKey = 'id';
 
     protected $fillable = [
-        'month',
+        'date',
         'electricity_cost',
         'gas_cost',
         'daily_cleaning_cost',

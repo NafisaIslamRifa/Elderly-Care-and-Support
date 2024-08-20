@@ -85,22 +85,10 @@
         <section class="add-products">
             <form action="{{ route('admin.maintenance') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                <label for="month">Month</label>
-                <select name="month" id="month" class="box" required>
-                    <option value="January">January</option>
-                    <option value="February">February</option>
-                    <option value="March">March</option>
-                    <option value="April">April</option>
-                    <option value="May">May</option>
-                    <option value="June">June</option>
-                    <option value="July">July</option>
-                    <option value="August">August</option>
-                    <option value="September">September</option>
-                    <option value="October">October</option>
-                    <option value="November">November</option>
-                    <option value="December">December</option>
+                
 
-                </select>
+                <label for="date">Date</label>
+            <input type="date" name="date" id="date" class="box" required>
 
                 <label for="electricity_cost">Electricity Cost</label>
                 <input type="number" name="electricity_cost" id="electricity_cost" class="box" placeholder="Electricity Cost" step="0.01" min="0" required>
@@ -125,7 +113,8 @@
             <div class="col-md-4 mb-4">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Month: {{ $maintenance->month }}</h5>
+                       
+                        <h5 class="card-title">Date: {{ $maintenance->date }}</h5>
                         <p class="card-text">Electricity Cost: {{ number_format($maintenance->electricity_cost, 2) }}Tk.</p>
                         <p class="card-text">Gas Cost: {{ number_format($maintenance->gas_cost, 2) }}Tk.</p>
                         <p class="card-text">Daily Cleaning Cost: {{ number_format($maintenance->daily_cleaning_cost, 2) }}Tk.</p>

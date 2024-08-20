@@ -6,14 +6,12 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Donation;
+
 class AboutController extends Controller
 {
-    public function index(){
-        return view("frontend.about");
-    }
-
-    public function count()
+    public function index()
     {
+        // Count the number of records in various tables
         $messagesCount = DB::table('contacts')->count();
         $eventsCount = DB::table('events')->count();
         $membersCount = DB::table('members')->count();
@@ -21,10 +19,11 @@ class AboutController extends Controller
         $donationsCount = DB::table('donations')->count();
 
         // Fetch the top 5 donations ordered by amount
-   
-    $topDonations = Donation::orderBy('amount', 'desc')
-    
-    ->get(['name',  'amount', 'status']); 
-        return view('frontend.about', compact('messagesCount', 'eventsCount','membersCount','staffsCount','donationsCount','topDonations'));
+        $topDonations = Donation::orderBy('amount', 'desc')
+            ->take(5) // Limit to 5 results
+            ->get(['name', 'amount', 'status']);
+
+        // Pass the data to the view
+        return view('frontend.about', compact('messagesCount', 'eventsCount', 'membersCount', 'staffsCount', 'donationsCount', 'topDonations'));
     }
 }

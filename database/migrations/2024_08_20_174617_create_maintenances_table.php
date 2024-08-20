@@ -13,10 +13,7 @@ return new class extends Migration
     {
         Schema::create('maintenances', function (Blueprint $table) {
             $table->id();
-            $table->enum('month', [
-                'January', 'February', 'March', 'April', 'May', 'June', 
-                'July', 'August', 'September', 'October', 'November', 'December'
-            ]);
+            $table->date('date');
             $table->decimal('electricity_cost', 10, 2);
             $table->decimal('gas_cost', 10, 2);
             $table->decimal('daily_cleaning_cost', 10, 2);
@@ -28,6 +25,7 @@ return new class extends Migration
             ->references('admin_id')
             ->on('admins')
             ->onDelete('cascade');
+
         });
     }
 
