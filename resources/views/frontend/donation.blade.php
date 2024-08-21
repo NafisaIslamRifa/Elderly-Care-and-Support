@@ -129,59 +129,29 @@
 </div><!-- End Section Title -->
 
 <div class="container">
-
   <div class="row gy-4">
+    @php
+        $phrases = [
+            "Care Home is a leading provider of caring and nursing services in Bangladesh.",
+            "In Bangladesh, Care Home stands out as a top provider of nursing and caring services.",
+            "One of the best caring and nursing service providers in Bangladesh is Care Home.",
+            "One of the best providers of elderly care in Bangladesh, Care Home uses donations to enhance the lives of its residents.",
+        ];
+    @endphp
 
+    @foreach($topDonations as $index => $donation)
     <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
       <div class="team-member d-flex align-items-start">
-        <div class="pic"><img src="{{url("frontend/images/rev-2.png" )}}"class="img-fluid" alt=""></div>
+        <div class="pic"><img src="{{url('frontend/images/user.png')}}" class="img-fluid" alt=""></div>
         <div class="member-info">
-          <h4>Tarek Hasan</h4>
-          <span>CEO,Brac</span>
-          <p>"Care Home is one of the top caring and nursing service providers in Bangladesh."</p>
-          
+          <h4>{{ $donation->name }}</h4>
+          <span>{{ $donation->amount }} TK</span>
+          <p>{{ $phrases[$index % count($phrases)] }}</p>
         </div>
       </div>
     </div><!-- End Team Member -->
-
-    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-      <div class="team-member d-flex align-items-start">
-        <div class="pic"><img src="{{url("frontend/images/indian-1.jpg")}}" class="img-fluid" alt=""></div>
-        <div class="member-info">
-          <h4>Miraj Islam</h4>
-          <span>Businessman</span>
-          <p>"Care Home is one of the top caring and nursing service providers in Bangladesh."</p>
-          
-        </div>
-      </div>
-    </div><!-- End Team Member -->
-
-    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
-      <div class="team-member d-flex align-items-start">
-        <div class="pic"><img src="{{url("frontend/images/rev-3.png")}}" class="img-fluid" alt=""></div>
-        <div class="member-info">
-          <h4>Samira Ali</h4>
-          <span>Doctor</span>
-          <p>"They are very much professional in this sector. Their customer service is very good."</p>
-          
-        </div>
-      </div>
-    </div><!-- End Team Member -->
-
-    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
-      <div class="team-member d-flex align-items-start">
-        <div class="pic"><img src="{{url("frontend/images/indwomen.jpg")}}" class="img-fluid" alt=""></div>
-        <div class="member-info">
-          <h4>Rodela Haque</h4>
-          <span>Founder, Webcoder-it </span>
-          <p>"I have been taking their services for a long time. Their professionalism is of a high level."</p>
-         
-        </div>
-      </div>
-    </div><!-- End Team Member -->
-
+    @endforeach
   </div>
-
 </div>
 
 </section>

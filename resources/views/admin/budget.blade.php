@@ -135,6 +135,13 @@
 						<p>Food Cost</p>
 					</span>
 				</li>
+                <li>
+					<i class='bx bxs-dollar-circle' ></i>
+					<span class="text">
+						<h3>{{ $donationsAmount-( $staffsSalary+$eventsCost+$MaintenanceCost+$FoodCost) }}</h3>
+						<p>Remaining Donation</p>
+					</span>
+				</li>
 				
 			</ul>
 
@@ -186,7 +193,7 @@
 			'Event Cost'
         ],
         datasets: [{
-            label: 'My First Dataset',
+            label: 'This Month',
             data: [{{$staffsSalary }}, {{$MaintenanceCost }}, {{  $FoodCost }},{{ $eventsCost }}],
             backgroundColor: [
                 'rgb(255, 99, 132)',

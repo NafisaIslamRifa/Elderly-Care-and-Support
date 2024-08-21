@@ -16,7 +16,16 @@ class SslCommerzPaymentController extends Controller
     public function exampleEasyCheckout()
     {
         
-        return view('frontend.donation');
+        $donationsCount = DB::table('donations')->count();
+        
+
+        // Fetch the top 5 donations ordered by amount
+   
+        $topDonations = Donation::orderBy('amount', 'desc')->take(4)
+
+    
+    ->get(['name',  'amount', 'status','transaction_id','id']); 
+        return view('frontend.donation', compact('donationsCount','topDonations'));
     }
 
   

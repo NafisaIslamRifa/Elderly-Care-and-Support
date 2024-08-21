@@ -74,7 +74,7 @@ Route::group(['middleware'=>'auth'],function(){
     //query in adminDashboard
 Route::get('/admin/dashboard', [AdminDashboardController::class, 'count'])->name('admin.dashboard');
 //query in stats of front
-Route::get("/account/about",[AboutController::class,"count"])->name('account.about');
+
 
 
 //maintenance

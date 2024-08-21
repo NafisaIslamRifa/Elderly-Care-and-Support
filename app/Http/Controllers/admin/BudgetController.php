@@ -31,8 +31,8 @@ class BudgetController extends Controller
         ->sum('amount');
 
         $MaintenanceCost = DB::table('maintenances')
-        ->whereYear('created_at', '=', date('Y'))
-        ->whereMonth('created_at', '=', date('m'))
+        ->whereYear('date', '=', date('Y'))
+        ->whereMonth('date', '=', date('m'))
         ->sum(DB::raw('electricity_cost + gas_cost + daily_cleaning_cost + security_cost'));
 
 
