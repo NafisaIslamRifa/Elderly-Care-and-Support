@@ -609,11 +609,15 @@ h6 {
   background-color: var(--background-color);
   border-top: 1px solid color-mix(in srgb, var(--accent-color), transparent 75%);
   font-size: 14px;
+  
   position: relative;
 }
 
 .footer .footer-top {
   padding-top: 50px;
+  padding-left: 150px;
+  
+ 
 }
 
 .footer .footer-about .logo {
@@ -1992,7 +1996,7 @@ section,
   width: 100%;
   box-sizing: border-box;
   font-family: montserrat;
-  color: #2C3E50;
+  /* color: #ffffff; */
   font-size: 14px;
   letter-spacing: 1px;
 }
@@ -2045,12 +2049,12 @@ section,
 
 
 .purple-button {
-  background-color:#9370DB;
-  border-color: #8A2BE2;
+  background-color: #005dae;
+  border-color:  #005dae;
   color: white;
 }
 
 .purple-button:hover {
-  background-color: #6b1c8e; /* Darker shade of purple for hover effect */
-  border-color: #6b1c8e;
+  background-color: #1977cc;/* Darker shade of purple for hover effect */
+  border-color:#1977cc;
 }
