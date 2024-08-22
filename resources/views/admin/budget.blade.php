@@ -52,6 +52,7 @@
 			
 			<li><a href="{{ route('admin.food') }}">Food</a></li>
 			<li><a href="{{ route('admin.maintenance') }}">Maintenance</a></li>
+            <li><a href="{{ route('admin.reviews') }}">Review</a></li>
 			<li><a href="{{ route('admin.budget') }}" class="active">Budget</a></li>
 			<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#!" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Hello, {{ Auth::user()->name }}</a>

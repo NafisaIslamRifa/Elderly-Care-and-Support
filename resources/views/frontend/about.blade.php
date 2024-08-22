@@ -234,72 +234,7 @@
 
 
 
-<!-- Doctors Section -->
-<section id="doctors" class="doctors section">
 
-  <!-- Section Title -->
-  <div class="container section-title" data-aos="fade-up">
-    <h2>Our People</h2>
-    <p>Here is a short opinion of our staffs and residents about Care Home</p>
-  </div><!-- End Section Title -->
-
-  <div class="container">
-
-    <div class="row gy-4">
-
-      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-        <div class="team-member d-flex align-items-start">
-          <div class="pic"><img src="{{url("frontend/images/rev-2.png")}}" class="img-fluid" alt=""></div>
-          <div class="member-info">
-            <h4>Tarek Hasan</h4>
-            <span>Manager</span>
-            <p>Care home is absolutely the best place for the elders</p>
-            
-          </div>
-        </div>
-      </div><!-- End Team Member -->
-
-      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-        <div class="team-member d-flex align-items-start">
-          <div class="pic"><img src="{{url("frontend/images/nurse.png" )}}"class="img-fluid" alt=""></div>
-          <div class="member-info">
-            <h4>Mira Islam</h4>
-            <span>Nurse</span>
-            <p>We provide best facilities at care home including medical treatment</p>
-            
-          </div>
-        </div>
-      </div><!-- End Team Member -->
-
-      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
-        <div class="team-member d-flex align-items-start">
-          <div class="pic"><img src="{{url("frontend/images/rev-3.png" )}}"class="img-fluid" alt=""></div>
-          <div class="member-info">
-            <h4>Samira Ali</h4>
-            <span>Nutritionist</span>
-            <p>At care home, We provide Diet and nutritious food specially made for the elder people</p>
-            
-          </div>
-        </div>
-      </div><!-- End Team Member -->
-
-      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
-        <div class="team-member d-flex align-items-start">
-          <div class="pic"><img src="{{url("frontend/images/man.png" )}}"class="img-fluid" alt=""></div>
-          <div class="member-info">
-            <h4>Akbar Haque</h4>
-            <span>Resident</span>
-            <p>Care Home is my second Home</p>
-           
-          </div>
-        </div>
-      </div><!-- End Team Member -->
-
-    </div>
-
-  </div>
-
-</section><!-- /Doctors Section -->
 
 <!-- Faq Section -->
 <section id="faq" class="faq section light-background">

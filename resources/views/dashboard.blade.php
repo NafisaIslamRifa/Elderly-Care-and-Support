@@ -209,7 +209,12 @@
 
 
   <main class="main">
-
+  @if (session('success'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ session('success') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+@endif
     <!-- Hero Section -->
     <section id="hero" class="hero section light-background">
 
@@ -402,88 +407,145 @@
 
    
 
-    <!-- Testimonials Section  -->
-    <section id="testimonials" class="testimonials section">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-5 info" data-aos="fade-up" data-aos-delay="100">
-            <h3>Testimonials</h3>
-            <p>
-              Testimonials for a care home are invaluable as they highlight the quality of care and support provided to residents and their families. They offer prospective residents and their loved ones reassurance about the home's standards and the compassionate nature of its staff.
-            </p>
-          </div>
-    
-          <div class="col-lg-7" data-aos="fade-up" data-aos-delay="200">
-            <div class="swiper init-swiper">
-              <script type="application/json" class="swiper-config">
-                <!-- {
-                  "loop": true,
-                  "speed": 600,
-                  "autoplay": {
-                    "delay": 5000
-                  },
-                  "slidesPerView": "auto",
-                  "pagination": {
-                    "el": ".swiper-pagination",
-                    "type": "bullets",
-                    "clickable": true
-                  }
-                } -->
-              </script>
-              <div class="swiper-wrapper">
-    
-                <!-- First Testimonial -->
-                <div class="swiper-slide">
-                  <div class="testimonial-item">
-                    <div class="d-flex">
-                      <img src="{{url("frontend/images/rev-3.png")}}" class="testimonial-img flex-shrink-0" alt="">
-                      <div>
-                        <h3>Samira Ali</h3>
-                        <h4>Teacher</h4>
-                        <div class="stars">
-                          <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                        </div>
-                      </div>
-                    </div>
-                    <p>
-                      <i class="bi bi-quote quote-icon-left"></i>
-                      <span>The care home exceeded my expectations with its attentive staff and comfortable environment. I feel grateful for the exceptional care provided to my loved one.</span>
-                      <i class="bi bi-quote quote-icon-right"></i>
-                    </p>
-                  </div>
-                </div><!-- End testimonial item -->
-    
-                <!-- Second Testimonial -->
-                <div class="swiper-slide">
-                  <div class="testimonial-item">
-                    <div class="d-flex">
-                      <img src="{{url("frontend/images/rev-2.png")}}" class="testimonial-img flex-shrink-0" alt="">
-                      <div>
-                        <h3>Shafiql Islam</h3>
-                        <h4>Actor</h4>
-                        <div class="stars">
-                          <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                        </div>
-                      </div>
-                    </div>
-                    <p>
-                      <i class="bi bi-quote quote-icon-left"></i>
-                      <span>The level of care and attention provided by the staff is outstanding. My family and I are extremely satisfied with the overall experience at the care home.</span>
-                      <i class="bi bi-quote quote-icon-right"></i>
-                    </p>
-                  </div>
-                </div><!-- End testimonial item -->
-    
-              </div>
-              <div class="swiper-pagination"></div>
-            </div>
-          </div>
-    
-        </div>
-      </div>
-    </section>
-    
+   
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <section id="testimonials" class="testimonials section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-5 info" data-aos="fade-up" data-aos-delay="100">
+                <h3>Testimonials</h3>
+                <p>
+                    Testimonials from our valued clients highlight the quality of care and support provided to residents and their families. They offer insight into the exceptional service we strive to provide.
+                </p>
+            </div>
+
+            <div class="col-lg-7" data-aos="fade-up" data-aos-delay="200">
+                <div class="swiper init-swiper">
+                    <script type="application/json" class="swiper-config">
+                       
+                    </script>
+                    <div class="swiper-wrapper">
+                        @foreach($reviews as $review)
+                            <div class="swiper-slide">
+                                <div class="testimonial-item">
+                                    <div class="d-flex">
+                                        
+                                        <div>
+                                            <h3>{{ $review->reviewer_name }}</h3>
+                                            <h4>{{ optional($review->user)->name }}</h4>
+                                            <div class="stars">
+                                                @for($i = 0; $i < $review->rating; $i++)
+                                                    <i class="bi bi-star-fill"></i>
+                                                @endfor
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p>
+                                        <i class="bi bi-quote quote-icon-left"></i>
+                                        <span>{{ $review->review_text }}</span>
+                                        <i class="bi bi-quote quote-icon-right"></i>
+                                    </p>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+   
+<!-- Section Title -->
+<div class="container section-title" data-aos="fade-up">
+      <h2>Review</h2>
+      <p>Review Us to have better care for elders</p>
+    </div><!-- End Section Title -->
+   
+
+
+
+
+
+
+    <section id="contact" class="contact section">
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+<div class="row gy-4">
+
+  <div class="col-lg-4">
+    <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
+      <i class="bi bi-geo-alt flex-shrink-0"></i>
+      <div>
+        <h3>Location</h3>
+        <p>UIU,Dhaka Madani Avenue,United City-1212</p>
+      </div>
+    </div><!-- End Info Item -->
+
+    <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
+      <i class="bi bi-telephone flex-shrink-0"></i>
+      <div>
+        <h3>Call Us</h3>
+        <p>+018777777777</p>
+      </div>
+    </div><!-- End Info Item -->
+
+    <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="500">
+      <i class="bi bi-envelope flex-shrink-0"></i>
+      <div>
+        <h3>Email Us</h3>
+        <p>nafisaislamrifa@google.com</p>
+      </div>
+    </div><!-- End Info Item -->
+
+  </div>
+
+  <div class="col-lg-8">
+    <form action="{{ route('admin.addreviews') }}" method="post" data-aos="fade-up" data-aos-delay="200" enctype="multipart/form-data">
+        @csrf
+        <div class="row gy-4">
+            <div class="col-md-6">
+                <input type="text" name="reviewer_name" id="reviewer_name" class="form-control" placeholder="Your Name" required="">
+            </div>
+
+            <div class="col-md-6">
+                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required="">
+            </div>
+
+            <div class="col-md-12">
+                <textarea class="form-control" name="review_text" id="review_text" rows="6" placeholder="Review" required=""></textarea>
+            </div>
+
+            <div class="col-md-12 text-center">
+                <button type="submit" style="background-color: #1977cc; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">Share Review</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+</div>
+
+</div>
+</section><!-- /Contact Section -->
     <!-- Gallery Section -->
     <section id="gallery" class="gallery section">
 

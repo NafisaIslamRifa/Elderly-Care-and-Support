@@ -43,6 +43,7 @@
    
     <li><a href="{{ route('admin.food') }}"class="active">Food</a></li>
 	<li><a href="{{ route('admin.maintenance') }}">Maintenance</a></li>
+	<li><a href="{{ route('admin.reviews') }}">Review</a></li>
 	<li><a href="{{ route('admin.budget') }}">Budget</a></li>
 
     <li class="nav-item dropdown">

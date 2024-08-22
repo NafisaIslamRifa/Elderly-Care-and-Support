@@ -25,7 +25,7 @@ use App\Http\Controllers\Frontend\HomeController;
  use App\Http\Controllers\Frontend\FoodController;
  use App\Http\Controllers\Frontend\ShelterController;
 use App\Http\Controllers\SslCommerzPaymentController;
-
+use App\Http\Controllers\Frontend\ReviewController; 
 
 
 Route::get('/', function () {
@@ -141,6 +141,13 @@ Route::put('/admin/events/{event_id}', [EventController::class, 'update'])->name
 Route::get("/account/event",[UserEventController::class,"index"])->name('account.event');
 Route::get("/account/event",[UserEventController::class,"get"])->name('account.event');
 //Route::get("/account/donation",[DonationController::class,"index"])->name('account.donation');
+
+//reviews
+Route::get('/admin/Review', [ReviewController::class, 'index'])->name('admin.reviews');
+Route::post('/account/dashboard', [ReviewController::class, 'addReview'])->name('admin.addreviews');
+Route::get('admin/Review', [ReviewController::class, 'get'])->name('admin.reviews');
+Route::get('/admin/reviews/{review_id}', [ReviewController::class, 'delete'])->name('admin.reviewDelete');
+Route::get('/account/dashboard', [dashboardController::class, 'fetch'])->name('account.dashboard');
 
 // SSLCOMMERZ Start
 Route::get('/account/donation', [SslCommerzPaymentController::class, 'exampleEasyCheckout'])->name('account.donation');
