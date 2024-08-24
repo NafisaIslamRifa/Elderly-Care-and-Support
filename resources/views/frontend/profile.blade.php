@@ -127,53 +127,34 @@ hr {
   @section('main-container')
 
   <main class="main">
-    <section id="profile" class="services section">
+    <section id="doctors" class="doctors section">
       <div class="container section-title" data-aos="fade-up">
         <h2>My Donations</h2>
         <p>Here are the donations you have made.</p>
-      </div><!-- End Section Title -->
-
-      <div class="profile-card-container">
-        <div class="profile-card card mb-4">
-          <div class="card-body">
-            <div class="row">
-              <div class="col-sm-3">
-                <p class="mb-0">Name</p>
-              </div>
-              <div class="col-sm-9">
-                <p class="text-muted mb-0">{{ $user->name }}</p>
-              </div>
-            </div>
-            <hr>
-            <div class="row">
-              <div class="col-sm-3">
-                <p class="mb-0">Email</p>
-              </div>
-              <div class="col-sm-9">
-                <p class="text-muted mb-0">{{ $user->email }}</p>
-              </div>
-            </div>
-            <hr>
-            <div class="row">
-              <div class="col-sm-3">
-                <p class="mb-0">Phone No</p>
-              </div>
-              <div class="col-sm-9">
-                <p class="text-muted mb-0">{{ $user->phone_no }}</p>
-              </div>
-            </div>
-            <hr>
-            <div class="row">
-              <div class="col-sm-3">
-                <p class="mb-0">Address</p>
-              </div>
-              <div class="col-sm-9">
-                <p class="text-muted mb-0">{{ $user->address }}</p>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
+      
+      
+      <!-- End Section Title -->
+      <div class="container">
+        <div class="row gy-4">
+            @foreach($donations as $donation)
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="team-member d-flex align-items-start">
+                    <div class="member-info">
+                        <h4>Name: {{ $donation->donation_name }}</h4>
+                        <h4>Email: {{ $donation->donation_email }}</h4>
+                        <h4>Amount: {{ $donation->amount }} TK</h4>
+                        <h4>Transaction Id: {{ $donation->transaction_id }}</h4>
+                        <h4>Status: {{ $donation->status }}</h4>
+                    </div>
+                </div>
+            </div><!-- End Team Member -->
+            @endforeach
+        </div>
+    </div>
+    
+    
+    
 
     </section><!-- /Services Section -->
   </main>
