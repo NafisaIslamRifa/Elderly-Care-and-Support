@@ -76,6 +76,7 @@
               </ul>
             </li>
             <li><a href="{{ route('account.contact') }}">Contact</a></li>
+            
             <li><a href="{{ route('account.donation') }}" class="active">Donate</a></li>
           </ul>
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -95,6 +96,7 @@
                            
                             <ul class="dropdown-menu border-0 shadow bsb-zoomIn" aria-labelledby="accountDropdown">                          
                                 <li>
+                                <a class="dropdown-item" href="{{ route('account.profile') }}">My Donations</a>
                                     <a class="dropdown-item" href="{{ route('account.logout') }}">Logout</a>
                                 </li>
                             </ul>

@@ -26,7 +26,7 @@ use App\Http\Controllers\Frontend\HomeController;
  use App\Http\Controllers\Frontend\ShelterController;
 use App\Http\Controllers\SslCommerzPaymentController;
 use App\Http\Controllers\Frontend\ReviewController; 
-
+use App\Http\Controllers\Frontend\UserProfileController;
 
 Route::get('/', function () {
     return view('Alldashboard');
@@ -148,6 +148,10 @@ Route::post('/account/dashboard', [ReviewController::class, 'addReview'])->name(
 Route::get('admin/Review', [ReviewController::class, 'get'])->name('admin.reviews');
 Route::get('/admin/reviews/{review_id}', [ReviewController::class, 'delete'])->name('admin.reviewDelete');
 Route::get('/account/dashboard', [dashboardController::class, 'fetch'])->name('account.dashboard');
+
+//profile
+
+Route::get("/account/profile",[UserProfileController::class,"index"])->name('account.profile');
 
 // SSLCOMMERZ Start
 Route::get('/account/donation', [SslCommerzPaymentController::class, 'exampleEasyCheckout'])->name('account.donation');
