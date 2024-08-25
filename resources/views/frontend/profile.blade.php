@@ -142,9 +142,13 @@ hr {
                 <div class="team-member d-flex align-items-start">
                     <div class="member-info">
                         <h4>Name: {{ $donation->donation_name }}</h4>
+                        <hr>
                         <h4>Email: {{ $donation->donation_email }}</h4>
+                        <hr>
                         <h4>Amount: {{ $donation->amount }} TK</h4>
+                        <hr>
                         <h4>Transaction Id: {{ $donation->transaction_id }}</h4>
+                        <hr>
                         <h4>Status: {{ $donation->status }}</h4>
                     </div>
                 </div>
