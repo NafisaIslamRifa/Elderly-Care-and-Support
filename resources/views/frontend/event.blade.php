@@ -116,7 +116,7 @@
     <main class="main">
 
         <!-- Hero Section -->
-        <section id="hero" class="hero section light-background">
+        {{-- <section id="hero" class="hero section light-background">
 
             <img src="{{url("frontend/images/women.png")}}" alt="" data-aos="fade-in" style="opacity: 1.0;">
 
@@ -142,7 +142,7 @@
 
             </div>
 
-        </section><!-- /Hero Section -->
+        </section><!-- /Hero Section --> --}}
 
 
 

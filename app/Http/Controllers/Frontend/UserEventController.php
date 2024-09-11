@@ -14,10 +14,13 @@ class UserEventController extends Controller
 
     public function get()
     {
-        $events = Event::all(); 
+        $events = Event::orderBy('event_id', 'DESC')->get();
+
         foreach ($events as $event) {
             $event->image_url = asset('frontend/images/' . $event->image);
         }
+        
         return view('frontend.event', compact('events'));
+        
     }
 }

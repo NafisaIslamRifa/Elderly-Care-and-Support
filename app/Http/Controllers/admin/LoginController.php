@@ -33,17 +33,20 @@ class LoginController extends Controller
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             // Check if the authenticated user is an admin
             if (Auth::user()->user_role == 'admin') {
-                return redirect()->route('admin.dashboard');
+                return redirect()->route('admin.dashboard')->with('success', 'Login successful!');
                 
             }
 
             // Authentication passed, redirect to the admin dashboard
             
-            Auth::logout();
-                return redirect()->route('admin.login')->with('error', 'Either Email or password is incorrect');
+           Auth::logout();
+                return redirect()->route('admin.login') ->withInput()
+                ->withErrors(['email' => 'The provided credentials are incorrect.']);
         } else {
             // Authentication failed, return back to login with error
-            return redirect()->route('admin.login')->with('error', 'Either Email or password is incorrect');
+            return redirect()->route('admin.login')
+            ->withInput()
+            ->withErrors(['email' => 'The provided credentials are incorrect.']);
         }
     }
 

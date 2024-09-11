@@ -37,12 +37,43 @@ class BudgetController extends Controller
 
 
 
-        $FoodCost = DB::table('foods')
-        ->whereYear('created_at', '=', date('Y'))
-        ->whereMonth('created_at', '=', date('m'))
-        
-        
-        ->sum('cost');
+       // Calculate how many days have passed in the current month
+// Get the current date and day of the month
+$today = now();
+$totalDays = $today->day; // For example, today is the 11th day of the month
+$firstDayOfMonth = $today->startOfMonth();
+
+// Array to map days of the week to the schema's enum day values
+
+
+// Find out what day of the week it is today (e.g., Monday = 0, Sunday = 6)
+$firstDayOfWeek = $firstDayOfMonth->dayOfWeek; // 0 = Sunday, 6 = Saturday
+$daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+// Initialize total food cost
+$totalFoodCost = 0;
+
+for ($i = 0; $i < $totalDays; $i++) {
+    // Calculate the index of the day of the week based on the number of days that have passed
+    $dayIndex = ($firstDayOfWeek + $i) % 7;
+    $dayName = $daysOfWeek[$dayIndex];
+
+    // Fetch the cost for this day from the 'foods' table
+    $costForDay = DB::table('foods')
+        ->where('day', $dayName)
+        ->value('cost');
+
+    // Add the cost of the day to the total
+    $totalFoodCost += $costForDay;
+}
+
+// Now you have the total food cost for the month so far
+$FoodCost = $totalFoodCost;
+
+// You can return or display the food cost
+
+
+
 
 
         $donationsByMonth = DB::table('donations')

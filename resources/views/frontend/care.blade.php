@@ -122,34 +122,7 @@
 
     <main class="main">
 
-        <!-- Hero Section -->
-        <section id="hero" class="hero section light-background">
-
-            <img src="{{url("frontend/images/older-1.png")}}" alt="" data-aos="fade-in" style="opacity: 1.0;">
-
-            <div class="container position-relative">
-
-                <div class="welcome position-relative" data-aos="fade-down" data-aos-delay="100">
-                    <!-- <h2 style="color: white;">Welcome To Care Home</h2>
-          <p style="color: white;">Care Home offers personalized care for seniors in a nurturing environment</p> -->
-
-                </div><!-- End Welcome -->
-
-
-
-
-
-
-                <!-- End  Content-->
-
-            </div>
-
-
-
-
-            </div>
-
-        </section><!-- /Hero Section -->
+        
 
 
 
@@ -269,4 +242,4 @@
 
     </main>
 
-    @endsection
+    @endsection

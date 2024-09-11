@@ -499,7 +499,7 @@
       <i class="bi bi-geo-alt flex-shrink-0"></i>
       <div>
         <h3>Location</h3>
-        <p>UIU,Dhaka Madani Avenue,United City-1212</p>
+        <p>{{Auth::user()->address  }}</p>
       </div>
     </div><!-- End Info Item -->
 
@@ -507,15 +507,15 @@
       <i class="bi bi-telephone flex-shrink-0"></i>
       <div>
         <h3>Call Us</h3>
-        <p>+018777777777</p>
+        <p>{{Auth::user()->phone_no  }}</p>
       </div>
     </div><!-- End Info Item -->
 
     <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="500">
       <i class="bi bi-envelope flex-shrink-0"></i>
       <div>
-        <h3>Email Us</h3>
-        <p>nafisaislamrifa@google.com</p>
+        <h3>Email</h3>
+        <p>{{Auth::user()->email  }}</p>
       </div>
     </div><!-- End Info Item -->
 
@@ -550,87 +550,10 @@
 </div>
 </section><!-- /Contact Section -->
     <!-- Gallery Section -->
-    <section id="gallery" class="gallery section">
+    
 
       <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Gallery</h2>
-        <p>Lets have a glimpse of our happy residents</p>
-      </div><!-- End Section Title -->
-
-      <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row g-0">
-
-          <div class="col-lg-3 col-md-4">
-            <div class="gallery-item">
-              <a href="images/game-1.png" class="glightbox" data-gallery="images-gallery">
-                <img src="{{url("frontend/images/game-1.png")}} "alt="" class="img-fluid">
-              </a>
-            </div>
-          </div><!-- End Gallery Item -->
-
-          <div class="col-lg-3 col-md-4">
-            <div class="gallery-item">
-              <a href="images/eat-1.png" class="glightbox" data-gallery="images-gallery">
-                <img src="{{url("frontend/images/eat-1.png")}}" alt="" class="img-fluid">
-              </a>
-            </div>
-          </div><!-- End Gallery Item -->
-
-          <div class="col-lg-3 col-md-4">
-            <div class="gallery-item">
-              <a href="images/tv-1.png" class="glightbox" data-gallery="images-gallery">
-                <img src="{{url("frontend/images/tv-1.png")}}" alt="" class="img-fluid">
-              </a>
-            </div>
-          </div><!-- End Gallery Item -->
-
-          <div class="col-lg-3 col-md-4">
-            <div class="gallery-item">
-              <a href="images/health-1.png" class="glightbox" data-gallery="images-gallery">
-                <img src="{{url("frontend/images/health-1.png")}}" alt="" class="img-fluid">
-              </a>
-            </div>
-          </div><!-- End Gallery Item -->
-
-          <div class="col-lg-3 col-md-4">
-            <div class="gallery-item">
-              <a href="images/walk-1.png" class="glightbox" data-gallery="images-gallery">
-                <img src="{{url("frontend/images/walk-1.png")}}" alt="" class="img-fluid">
-              </a>
-            </div>
-          </div><!-- End Gallery Item -->
-
-          <div class="col-lg-3 col-md-4">
-            <div class="gallery-item">
-              <a href="images/bed-1.png" class="glightbox" data-gallery="images-gallery">
-                <img src="{{url("frontend/images/bed-1.png")}}" alt="" class="img-fluid">
-              </a>
-            </div>
-          </div><!-- End Gallery Item -->
-
-          <div class="col-lg-3 col-md-4">
-            <div class="gallery-item">
-              <a href="images/eat-1.png" class="glightbox" data-gallery="images-gallery">
-                <img src="{{url("frontend/images/eat-1.png")}} "alt="" class="img-fluid">
-              </a>
-            </div>
-          </div><!-- End Gallery Item -->
-
-          <div class="col-lg-3 col-md-4">
-            <div class="gallery-item">
-              <a href="images/game-1.png" class="glightbox" data-gallery="images-gallery">
-                <img src="{{url("frontend/images/game-1.png")}}" alt="" class="img-fluid">
-              </a>
-            </div>
-          </div><!-- End Gallery Item -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Gallery Section -->
+    
 
     
   </main>

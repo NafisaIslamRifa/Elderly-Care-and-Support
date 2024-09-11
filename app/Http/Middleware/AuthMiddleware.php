@@ -14,23 +14,23 @@ class AuthMiddleware
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next): Response
-
+    public function handle($request, Closure $next)
     {
+        // If the user is not authenticated, redirect to login page
         if (!Auth::check()) {
-            return redirect()->route('account.login');
+            return redirect('/account/login');
         }
-        $userrole=Auth::user()->role;
 
-        if($userrole=='Customer'){
-            return redirect()->route('account.dashboard');
+        // If the authenticated user is an admin, redirect to admin dashboard
+        if (Auth::user()->role == 'admin') {
+            return redirect('/admin/dashboard');
         }
-        elseif($userrole=='Admin'){
-            return redirect()->route('admin.dashboard');
 
+        // If the authenticated user is a normal user, redirect to user dashboard
+        if (Auth::user()->role == 'customer') {
+            return redirect('/account/dashboard');
         }
-        
 
-        return $next($request);
+        return $next($request); // Allow the request to continue if no redirection is needed
     }
 }

@@ -45,8 +45,8 @@
 }
 
 .section-title {
-    font-size: 2.5rem;
-    color: #0047AB;
+    font-size: 1.0rem;
+    color: black;
     margin-bottom: 0.5rem;
 }
 
@@ -185,36 +185,16 @@
 
   <main class="main">
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero section light-background">
+   
 
-      <img src="{{url("frontend/images/old.png")}}" alt="" data-aos="fade-in" style="opacity: 1.0;">
+    <!-- <section id="food" class="food section py-5"> -->
+    <section id="services" class="services section">
 
-      <div class="container position-relative">
-
-        <div class="welcome position-relative" data-aos="fade-down" data-aos-delay="100">
-          <!-- <h2 style="color: white;">Welcome To Care Home</h2>
-          <p style="color: white;">Care Home offers personalized care for seniors in a nurturing environment</p> -->
-
-        </div><!-- End Welcome -->
-
-
-
-
-        <!-- End  Content-->
-
-      </div>
-
-    </section><!-- /Hero Section -->
-
-    <section id="food" class="food section py-5">
-
-    <!-- Section Title -->
-    <div class="container text-center mb-4" data-aos="fade-up">
-        <h2 class="section-title">Food Menu</h2>
-        <p class="section-description">Discover the delicious food options available at the Care Home</p>
-    </div><!-- End Section Title -->
-
+    
+    <div class="container section-title" data-aos="fade-up">
+                <h2>Food Menu</h2>
+                <p>Discover the delicious food options available at the Care Home</p>
+            </div><!-- End Section Title -->
     <div class="container">
 
         <div class="album py-5 bg-light">
@@ -331,4 +311,4 @@
 
   </main>
 
-  @endsection
+  @endsection

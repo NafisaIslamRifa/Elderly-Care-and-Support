@@ -122,7 +122,7 @@
 @endif
 
     <!-- Hero Section -->
-    <section id="hero" class="hero section light-background">
+    {{-- <section id="hero" class="hero section light-background">
 
       <img src="{{url("frontend/images/laugh-1.png" )}}"alt="" data-aos="fade-in" style="opacity: 1.0;"height="500">
 
@@ -141,7 +141,7 @@
 
       </div>
 
-    </section><!-- /Hero Section -->
+    </section><!-- /Hero Section --> --}}
 <!-- Contact Section -->
 <section id="contact" class="contact section">
 
@@ -176,23 +176,23 @@
             <i class="bi bi-geo-alt flex-shrink-0"></i>
             <div>
               <h3>Location</h3>
-              <p>UIU,Dhaka Madani Avenue,United City-1212</p>
-            </div>
-          </div><!-- End Info Item -->
+        <p>{{Auth::user()->address  }}</p>
+      </div>
+    </div><!-- End Info Item -->
 
-          <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
-            <i class="bi bi-telephone flex-shrink-0"></i>
-            <div>
-              <h3>Call Us</h3>
-              <p>+018777777777</p>
-            </div>
-          </div><!-- End Info Item -->
+    <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
+      <i class="bi bi-telephone flex-shrink-0"></i>
+      <div>
+        <h3>Call Us</h3>
+        <p>{{Auth::user()->phone_no  }}</p>
+      </div>
+    </div><!-- End Info Item -->
 
-          <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="500">
-            <i class="bi bi-envelope flex-shrink-0"></i>
-            <div>
-              <h3>Email Us</h3>
-              <p>nafisaislamrifa@google.com</p>
+    <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="500">
+      <i class="bi bi-envelope flex-shrink-0"></i>
+      <div>
+        <h3>Email</h3>
+        <p>{{Auth::user()->email  }}</p>
             </div>
           </div><!-- End Info Item -->
 

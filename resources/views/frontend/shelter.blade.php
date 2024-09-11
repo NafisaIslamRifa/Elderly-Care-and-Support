@@ -115,54 +115,25 @@
 @section("main-container")
     <main class="main">
 
-        <!-- Hero Section -->
-        <section id="hero" class="hero section light-background">
-
-            <img src="{{url("frontend/images/women.png")}}" alt="" data-aos="fade-in" style="opacity: 1.0;">
-
-            <div class="container position-relative">
-
-                <div class="welcome position-relative" data-aos="fade-down" data-aos-delay="100">
-                    <!-- <h2 style="color: white;">Welcome To Care Home</h2>
-          <p style="color: white;">Care Home offers personalized care for seniors in a nurturing environment</p> -->
-
-                </div><!-- End Welcome -->
-
-
-
-
-
-
-                <!-- End  Content-->
-
-            </div>
-
-
-
-
-            </div>
-
-        </section><!-- /Hero Section -->
-
+        
 
 
         <section id="services" class="services section">
 
-            <!-- Section Title -->
-            <div class="container section-title" data-aos="fade-up">
+           
+            
+            
+
+       
+ 
+
+    <div class="container section-title" data-aos="fade-up">
                 <h2>Accommodation</h2>
                 <p>Introduce you with our well planned Accommodation system at Care Home</p>
             </div><!-- End Section Title -->
-
-            
-            
-
-        </section><!-- /Services Section -->
-
-          
         
 	<div class="container col-6">
-		<div class="h1 text-center text-dark my-5" id="pageHeaderTitle" ></div>
+		<div class="h1 text-center text-dark my-2" id="pageHeaderTitle" ></div>
 
 		<article class="postcard light blue ">
 			<a class="postcard__img_link" href="#">
@@ -190,7 +161,7 @@
 			<div class="postcard__text t-dark">
 				<h1 class="postcard__title red"><a href="#">Common Room</a></h1>
 				<div class="postcard__subtitle small">
-                <p><strong style="color:  #C35214;">Explore our cozy indoor rooms designed for comfort and relaxation, offering a peaceful retreat for our residents.</strong></p>
+                <p><strong style="color:  #C35214;">Explore our cozy common room designed for comfort and relaxation, offering a peaceful retreat for our residents.</strong></p>
 				</div>
 				<div class="postcard__bar"></div>
 				<div class="postcard__preview-txt">At Care Home, our common room is a vibrant hub where residents gather to socialize, engage in activities, and build friendships. With cozy seating areas, entertainment options, and a welcoming atmosphere, it fosters a sense of community and belonging. It's a place where residents can unwind, enjoy group events, and create lasting memories togethe!</div>
@@ -221,7 +192,7 @@
 			<div class="postcard__text t-dark">
 				<h1 class="postcard__title yellow"><a href="#">Garden</a></h1>
 				<div class="postcard__subtitle small">
-                <p><strong style="color:  #C35214;">Explore our cozy indoor rooms designed for comfort and relaxation, offering a peaceful retreat for our residents.</strong></p>
+                <p><strong style="color:  #C35214;">Explore our garden designed for comfort and relaxation, offering a peaceful retreat for our residents.</strong></p>
 					
 				</div>
 				<div class="postcard__bar"></div>
@@ -236,4 +207,4 @@
 
     </main>
 
-    @endsection
+    @endsection

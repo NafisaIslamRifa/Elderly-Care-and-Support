@@ -34,16 +34,22 @@ class LoginController extends Controller
 
             // Authentication passed, redirect to intended page
 
-            $user = Auth::user();
-            $request->session()->put('auth', $user);
-            $request->session()->put('user', $user->name);
+            if (Auth::user()->user_role == 'customer') {
+                return redirect()->route('account.dashboard')->with('success', 'Login successful!');
+                
+            }
+            Auth::logout();
+            return redirect()->route('account.login') ->withInput()
+            ->withErrors(['email' => 'The provided credentials are incorrect.']);
+
            
-            return redirect()->route('account.dashboard');
+           
         } else {
-            // Authentication failed, return back to login with error
-            return redirect()->route('account.login')->with('error', 'Either Email or password is incorrect');
-        }
-    }
+            return redirect()->route('account.login')
+            ->withInput()
+            ->withErrors(['email' => 'The provided credentials are incorrect.']);
+          
+    }}
 
     public function register()
     {
